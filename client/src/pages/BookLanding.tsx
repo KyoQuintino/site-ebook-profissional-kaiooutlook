@@ -10,7 +10,7 @@ type LandingData = {
   author: string;
   description: string;
   image: string;
-  checkout: string;
+  checkout: https://kiwify.app/iSGsfag string;
   introTitle: string;
   intro: string;
   benefits: { title: string; text: string }[];
