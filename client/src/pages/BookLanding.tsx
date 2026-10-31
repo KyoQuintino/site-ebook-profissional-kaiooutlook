@@ -10,7 +10,7 @@ type LandingData = {
   author: string;
   description: string;
   image: string;
-  checkout: https://kiwify.app/iSGsfag string;
+  checkout: string;
   introTitle: string;
   intro: string;
   benefits: { title: string; text: string }[];
@@ -73,7 +73,7 @@ const landings: LandingData[] = [
     author: "Danielle Pereira",
     description: "Um e-book para quem quer colocar mais ingredientes naturais no dia a dia, sem complicar a cozinha.",
     image: "/assets/101-sucos-detox-cover-lite.webp",
-    checkout: "https://pay.kiwify.com.br/p7Zu3B7",
+    checkout: "https://kiwify.app/iSGsfag",
     introTitle: "Quando a receita certa está à mão, cuidar da rotina fica mais fácil.",
     intro: "O 101 Sucos Detox reúne ideias para experimentar combinações com frutas, folhas, legumes, sementes e ingredientes frescos. É um material de consulta rápida, feito para acompanhar a vida real.",
     benefits: [
