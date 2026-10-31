@@ -314,6 +314,39 @@ const products: Product[] = [
     author: "Rick Warren",
     bullets: ["Princípios para liderar com propósito", "Reflexões para decisões e responsabilidades", "Atendimento para informações e disponibilidade"],
   },
+  {
+    id: 28,
+    title: "Como Fazer Amigos e Influenciar Pessoas",
+    category: "COMUNICAÇÃO · RELACIONAMENTOS",
+    description: "Um guia clássico e atemporal para conversar com mais presença, criar vínculos verdadeiros e influenciar pessoas com respeito.",
+    image: "como-fazer-amigos-e-influenciar-pessoas-lite.webp",
+    href: "/como-fazer-amigos-e-influenciar-pessoas",
+    tag: "NOVA LEITURA",
+    author: "Dale Carnegie",
+    bullets: ["Conversas mais claras e interessantes", "Relações com mais confiança", "Leitura digital com checkout pela Kiwify"],
+  },
+  {
+    id: 29,
+    title: "A Tríade do Tempo",
+    category: "PRODUTIVIDADE · GESTÃO DO TEMPO",
+    description: "Uma metodologia para observar as atividades urgentes, importantes e circunstanciais e organizar a rotina de acordo com suas prioridades.",
+    image: "triade-do-tempo-cover-lite.webp",
+    href: "/triade-do-tempo",
+    tag: "NOVA LEITURA",
+    author: "Christian Barbosa",
+    bullets: ["As três esferas da Tríade do Tempo", "Cinco etapas para organizar a rotina", "Leitura digital com checkout pela Kiwify"],
+  },
+  {
+    id: 30,
+    title: "101 Sucos Detox",
+    category: "HÁBITOS NATURAIS · BEM-ESTAR",
+    description: "Um guia digital com 101 receitas naturais e um roteiro de 10 dias para trazer mais variedade e praticidade à rotina.",
+    image: "101-sucos-detox-cover-lite.webp",
+    href: "/101-sucos-detox",
+    tag: "NOVA LEITURA",
+    author: "Danielle Pereira",
+    bullets: ["101 receitas de sucos naturais", "Roteiro prático de 10 dias", "Material em PDF com checkout pela Kiwify"],
+  },
 ];
 
 const categories = Array.from(new Set(products.map((product) => product.category)));
@@ -418,7 +451,7 @@ export default function Home() {
         <section className="catalog section-wrap" id="colecao">
           <div className="catalog-intro">
             <div><div className="eyebrow">A COLEÇÃO DIGITALQUINTINO</div><h2>Escolha a próxima <i>virada.</i></h2></div>
-            <p>Vinte e sete leituras para alinhar o que você sente com o que quer construir. Explore por tema, encontre a que conversa com seu momento e leia no seu ritmo.</p>
+            <p>Trinta leituras para alinhar o que você sente com o que quer construir. Explore por tema, encontre a que conversa com seu momento e leia no seu ritmo.</p>
           </div>
           <div className="catalog-tools">
             <label className="select-wrap"><span>Filtrar por categoria</span><select value={filter} onChange={(event) => setFilter(event.target.value)}><option>Todas as categorias</option>{categories.map((category) => <option key={category}>{category}</option>)}</select><ChevronDown size={16} /></label>
