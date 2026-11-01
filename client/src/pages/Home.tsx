@@ -25,6 +25,8 @@ type Product = {
   imageFit?: "cover" | "contain";
   imageAspectRatio?: "landscape";
   href: string;
+  presentationUrl?: string;
+  actionLabel?: string;
   tag: string;
   bullets: string[];
   author?: string;
@@ -253,7 +255,7 @@ const products: Product[] = [
     title: "Forças para Recomeçar",
     category: "JORNADA CRISTÃ DE TRANSFORMAÇÃO",
     description: "Quando o amor encontra as provas da vida, ainda existe um caminho de volta para a esperança.",
-    image: "/assets/forcas-para-recomecar-enviado.jpg",
+    image: "forcas-para-recomecar-enviado.jpg",
     imageFit: "contain",
     href: "https://go.hotmart.com/L107929370L",
     tag: "RECOMEÇO",
@@ -264,7 +266,7 @@ const products: Product[] = [
     title: "Mais Esperto que o Diabo",
     category: "CONSCIÊNCIA, PROPÓSITO E PROSPERIDADE",
     description: "Perguntas mais precisas são o começo de uma mente mais livre.",
-    image: "/assets/mais-esperto-que-o-diabo-enviado.jpg",
+    image: "mais-esperto-que-o-diabo-enviado.jpg",
     imageFit: "contain",
     imageAspectRatio: "landscape",
     href: "https://go.hotmart.com/Q107892470J",
@@ -316,36 +318,40 @@ const products: Product[] = [
   },
   {
     id: 28,
-    title: "Como Fazer Amigos e Influenciar Pessoas",
-    category: "COMUNICAÇÃO · RELACIONAMENTOS",
-    description: "Um guia clássico e atemporal para conversar com mais presença, criar vínculos verdadeiros e influenciar pessoas com respeito.",
-    image: "como-fazer-amigos-e-influenciar-pessoas-lite.webp",
-    href: "/como-fazer-amigos-e-influenciar-pessoas",
-    tag: "NOVA LEITURA",
-    author: "Dale Carnegie",
-    bullets: ["Conversas mais claras e interessantes", "Relações com mais confiança", "Leitura digital com checkout pela Kiwify"],
+    title: "O Poder da Oração",
+    category: "DEVOCIONAL · SABEDORIA BÍBLICA",
+    description: "Uma coletânea de autores diversos com reflexões bíblicas, estudos e testemunho sobre oração, fé e intercessão — para ler com calma e levar para a rotina.",
+    image: "o-poder-da-oracao-capa.webp",
+    imageFit: "contain",
+    href: "https://pay.hotmart.com/D107958781O",
+    tag: "NOVA NA COLEÇÃO",
+    bullets: ["PDF digital com 104 páginas", "Reflexões sobre oração, fé e intercessão", "Estudos bíblicos e testemunho incluído na coletânea"],
   },
   {
     id: 29,
-    title: "A Tríade do Tempo",
-    category: "PRODUTIVIDADE · GESTÃO DO TEMPO",
-    description: "Uma metodologia para observar as atividades urgentes, importantes e circunstanciais e organizar a rotina de acordo com suas prioridades.",
-    image: "triade-do-tempo-cover-lite.webp",
-    href: "/triade-do-tempo",
-    tag: "NOVA LEITURA",
-    author: "Christian Barbosa",
-    bullets: ["As três esferas da Tríade do Tempo", "Cinco etapas para organizar a rotina", "Leitura digital com checkout pela Kiwify"],
+    title: "Como Fazer Amigos e Influenciar Pessoas",
+    category: "COMUNICAÇÃO · RELAÇÕES HUMANAS",
+    description: "O clássico de Dale Carnegie reúne princípios atemporais para ouvir melhor, criar vínculos verdadeiros e influenciar pessoas com respeito.",
+    image: "como-fazer-amigos.webp",
+    imageFit: "contain",
+    href: "https://pay.kiwify.com.br/MQpLgSg",
+    presentationUrl: "https://kiwify.app/SgPnGyl",
+    actionLabel: "Comprar na Kiwify",
+    tag: "CLÁSSICO DA COMUNICAÇÃO",
+    bullets: ["Princípios para ouvir com atenção e demonstrar interesse genuíno", "Como lidar com discordâncias e expressar ideias com respeito", "Leitura digital sobre comunicação, confiança e influência nas relações"],
   },
   {
     id: 30,
-    title: "101 Sucos Detox",
-    category: "HÁBITOS NATURAIS · BEM-ESTAR",
-    description: "Um guia digital com 101 receitas naturais e um roteiro de 10 dias para trazer mais variedade e praticidade à rotina.",
-    image: "101-sucos-detox-cover-lite.webp",
-    href: "/101-sucos-detox",
-    tag: "NOVA LEITURA",
-    author: "Danielle Pereira",
-    bullets: ["101 receitas de sucos naturais", "Roteiro prático de 10 dias", "Material em PDF com checkout pela Kiwify"],
+    title: "Os Pré-Socráticos",
+    category: "FILOSOFIA · HISTÓRIA DAS IDEIAS",
+    description: "Uma edição de estudo sobre os primeiros filósofos gregos, com introdução histórica, fragmentos, doxografia e comentários — da passagem do mito à investigação racional.",
+    image: "os-pre-socraticos.webp",
+    imageFit: "contain",
+    href: "https://pay.kiwify.com.br/4LPCjeC",
+    presentationUrl: "https://kiwify.app/PsfF1e3",
+    actionLabel: "Comprar na Kiwify",
+    tag: "FILOSOFIA GREGA ANTIGA",
+    bullets: ["Fragmentos, doxografia e comentários em uma leitura guiada", "Percurso por dez entradas, de Tales de Mileto a Leucipo e Demócrito", "Contexto histórico sobre a passagem do mito à investigação racional"],
   },
 ];
 
@@ -464,7 +470,18 @@ export default function Home() {
             {filtered.map((product) => (
               <article className="product-card" key={product.id}>
                 <button className="product-cover-button" onClick={() => setSelected(product)} aria-label={`Visualização rápida de ${product.title}`}><Cover product={product} variant="card" /><span className="quick-view">Visualização rápida <ArrowUpRight size={14} /></span></button>
-                <div className="product-info"><span className="product-category">{product.category}</span><span className="product-tag">{product.tag}</span><h3>{product.title}</h3><p>{product.description}</p><div className="product-footer"><button className="details-link" onClick={() => setSelected(product)}>Conhecer esta leitura <ArrowRight size={15} /></button><a href={product.href} target="_blank" rel="noreferrer" aria-label={`Comprar ${product.title}`}><ArrowUpRight size={17} /></a></div></div>
+                <div className="product-info">
+                  <span className="product-category">{product.category}</span>
+                  <span className="product-tag">{product.tag}</span>
+                  <h3>{product.title}</h3>
+                  <p>{product.description}</p>
+                  <div className="product-footer">
+                    <button className="details-link" onClick={() => setSelected(product)}>Conhecer esta leitura <ArrowRight size={15} /></button>
+                    <a href={product.href} target="_blank" rel="noreferrer" aria-label={product.actionLabel ? `${product.actionLabel}: ${product.title}` : `Comprar ${product.title}`}>
+                      <ArrowUpRight size={17} />
+                    </a>
+                  </div>
+                </div>
               </article>
             ))}
           </div>
@@ -483,7 +500,35 @@ export default function Home() {
 
       <footer className="site-footer section-wrap"><div className="footer-brand"><span className="brand-mark">D</span><div><strong>Digital <em>Quintino</em></strong><span>Leituras para viver melhor.</span></div></div><div className="footer-links"><a href="#colecao">Coleção</a><a href="#curadoria">Curadoria</a><a href={whatsappFor()} target="_blank" rel="noreferrer">WhatsApp</a></div><span className="footer-note">© 2026 DigitalQuintino</span></footer>
 
-      {selected && <div className="modal-backdrop" role="presentation" onClick={() => setSelected(null)}><div className="product-modal" role="dialog" aria-modal="true" aria-label={`Detalhes de ${selected.title}`} onClick={(event) => event.stopPropagation()}><button className="modal-close" onClick={() => setSelected(null)} aria-label="Fechar"><X size={19} /></button><div className="modal-cover"><Cover product={selected} variant="detail" /></div><div className="modal-copy"><span className="product-category">{selected.category}</span><h2>{selected.title}</h2><p>{selected.description}</p><ul className="benefit-list">{selected.bullets.map((bullet) => <li key={bullet}><Check size={15} />{bullet}</li>)}</ul><div className="modal-actions"><a className="button button-accent" href={selected.href} target="_blank" rel="noreferrer">Quero este e-book <ExternalLink size={15} /></a><a className="text-link" href={whatsappFor(selected.title)} target="_blank" rel="noreferrer"><MessageCircle size={16} /> Tirar uma dúvida</a></div></div></div></div>}
+      {selected && (
+        <div className="modal-backdrop" role="presentation" onClick={() => setSelected(null)}>
+          <div className="product-modal" role="dialog" aria-modal="true" aria-label={`Detalhes de ${selected.title}`} onClick={(event) => event.stopPropagation()}>
+            <button className="modal-close" onClick={() => setSelected(null)} aria-label="Fechar"><X size={19} /></button>
+            <div className="modal-cover"><Cover product={selected} variant="detail" /></div>
+            <div className="modal-copy">
+              <span className="product-category">{selected.category}</span>
+              <h2>{selected.title}</h2>
+              <p>{selected.description}</p>
+              <ul className="benefit-list">
+                {selected.bullets.map((bullet) => <li key={bullet}><Check size={15} />{bullet}</li>)}
+              </ul>
+              <div className="modal-actions">
+                <a className="button button-accent" href={selected.href} target="_blank" rel="noreferrer">
+                  {selected.actionLabel ?? "Quero este e-book"} <ExternalLink size={15} />
+                </a>
+                {selected.presentationUrl && (
+                  <a className="text-link" href={selected.presentationUrl} target="_blank" rel="noreferrer">
+                    <BookOpen size={16} /> Ver página de apresentação
+                  </a>
+                )}
+                <a className="text-link" href={whatsappFor(selected.title)} target="_blank" rel="noreferrer">
+                  <MessageCircle size={16} /> Tirar uma dúvida
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
