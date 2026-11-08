@@ -279,7 +279,7 @@ const products: Product[] = [
     category: "AUTOCONHECIMENTO · BEM-ESTAR",
     description: "A vida que você quer também se constrói em pequenos passos.",
     image: "efeito-novo_553926f4.webp",
-    href: "https://go.hotmart.com/M107928910P",
+    href: "https://pay.hotmart.com/M107928910P",
     tag: "PEQUENOS PASSOS",
     bullets: ["Princípios para consistência", "Aplicações para a vida real", "Acesso imediato"],
   },
