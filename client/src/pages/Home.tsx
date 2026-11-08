@@ -269,7 +269,7 @@ const products: Product[] = [
     image: "mais-esperto-que-o-diabo-enviado.jpg",
     imageFit: "contain",
     imageAspectRatio: "landscape",
-    href: "https://go.hotmart.com/Q107892470J",
+    href: "https://pay.hotmart.com/Q107892470J",
     tag: "MENTE LIVRE",
     bullets: ["Reflexões sobre propósito", "Perguntas para decidir melhor", "Leitura digital imediata"],
   },
