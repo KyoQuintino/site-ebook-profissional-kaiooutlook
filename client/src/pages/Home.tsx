@@ -353,6 +353,16 @@ const products: Product[] = [
     tag: "FILOSOFIA GREGA ANTIGA",
     bullets: ["Fragmentos, doxografia e comentários em uma leitura guiada", "Percurso por dez entradas, de Tales de Mileto a Leucipo e Demócrito", "Contexto histórico sobre a passagem do mito à investigação racional"],
   },
+  {
+    id: 31,
+    title: "PNL Segredo",
+    category: "DESENVOLVIMENTO PESSOAL · PNL",
+    description: "Conheça a apresentação do PNL Segredo e consulte os detalhes diretamente na página oficial.",
+    image: "",
+    href: "https://pnlsegredo-6ghqgqri.manus.space/",
+    tag: "NOVA SELEÇÃO",
+    bullets: ["Acesse a página oficial do PNL Segredo", "Conheça a proposta e os detalhes do conteúdo", "Consulte as informações diretamente no site"],
+  },
 ];
 
 const categories = Array.from(new Set(products.map((product) => product.category)));
@@ -361,7 +371,15 @@ const featured = [products[18], products[19], products[17]];
 function Cover({ product, variant = "card" }: { product: Product; variant?: "card" | "hero" | "detail" }) {
   return (
     <div className={`cover cover-${variant}${product.imageFit === "contain" ? " cover-image-contain" : ""}${product.imageAspectRatio === "landscape" ? " cover-image-landscape" : ""}`}>
-      <img src={product.image.startsWith("/") ? product.image : `/assets/${product.image}`} alt={`Capa do e-book ${product.title}`} />
+      {product.image ? (
+        <img src={product.image.startsWith("/") ? product.image : `/assets/${product.image}`} alt={`Capa do e-book ${product.title}`} />
+      ) : (
+        <div className="cover-placeholder" role="img" aria-label={`Capa provisória de ${product.title}`}>
+          <span>DIGITAL QUINTINO</span>
+          <strong>PNL<br />SEGREDO</strong>
+          <small>DESENVOLVIMENTO PESSOAL</small>
+        </div>
+      )}
       <span className="cover-gloss" />
     </div>
   );
@@ -457,7 +475,7 @@ export default function Home() {
         <section className="catalog section-wrap" id="colecao">
           <div className="catalog-intro">
             <div><div className="eyebrow">A COLEÇÃO DIGITALQUINTINO</div><h2>Escolha a próxima <i>virada.</i></h2></div>
-            <p>Trinta leituras para alinhar o que você sente com o que quer construir. Explore por tema, encontre a que conversa com seu momento e leia no seu ritmo.</p>
+            <p>31 leituras para alinhar o que você sente com o que quer construir. Explore por tema, encontre a que conversa com seu momento e leia no seu ritmo.</p>
           </div>
           <div className="catalog-tools">
             <label className="select-wrap"><span>Filtrar por categoria</span><select value={filter} onChange={(event) => setFilter(event.target.value)}><option>Todas as categorias</option>{categories.map((category) => <option key={category}>{category}</option>)}</select><ChevronDown size={16} /></label>
@@ -469,7 +487,7 @@ export default function Home() {
           <div className="product-grid">
             {filtered.map((product) => (
               <article className="product-card" key={product.id}>
-                <button className="product-cover-button" onClick={() => setSelected(product)} aria-label={`Visualização rápida de ${product.title}`}><Cover product={product} variant="card" /><span className="quick-view">Visualização rápida <ArrowUpRight size={14} /></span></button>
+                <button className="product-cover-button" onClick={() => product.id === 31 ? window.open(product.href, "_blank", "noopener,noreferrer") : setSelected(product)} aria-label={product.id === 31 ? `Abrir página oficial de ${product.title}` : `Visualização rápida de ${product.title}`}><Cover product={product} variant="card" /><span className="quick-view">{product.id === 31 ? "Acessar página oficial" : "Visualização rápida"} <ArrowUpRight size={14} /></span></button>
                 <div className="product-info">
                   <span className="product-category">{product.category}</span>
                   <span className="product-tag">{product.tag}</span>
