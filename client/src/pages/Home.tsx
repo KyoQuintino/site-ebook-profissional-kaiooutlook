@@ -196,7 +196,7 @@ const products: Product[] = [
     category: "FÉ EM FAMÍLIA · INFÂNCIA",
     description: "Pequenas verdades. Grandes sementes para uma fé viva, compartilhada e cheia de ternura.",
     image: "jesus_abe8e523.webp",
-    href: "https://go.hotmart.com/V107625668R",
+    href: "https://pay.hotmart.com/V107625668R",
     tag: "EM FAMÍLIA",
     bullets: ["Conteúdo para conversar com crianças", "Histórias e atividades", "Um momento para compartilhar"],
   },
