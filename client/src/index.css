@@ -86,3 +86,7 @@ h1 i,h2 i { color:var(--terracotta); font-weight:400; }
 .cover-image-contain { background:#07162c; }
 .cover-image-contain img { object-fit:contain; }
 .cover-image-landscape { aspect-ratio:16/9; }
+.cover-placeholder { width:100%; height:100%; min-height:180px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; padding:18px; box-sizing:border-box; text-align:center; color:#f3ead8; background:radial-gradient(circle at 75% 20%,#8d7250 0,transparent 34%),linear-gradient(145deg,#17251f,#34483a 58%,#111a17); }
+.cover-placeholder span,.cover-placeholder small { font-size:8px; letter-spacing:.2em; }
+.cover-placeholder strong { font:600 clamp(24px,4vw,42px)/.92 Georgia,serif; letter-spacing:.04em; }
+.cover-placeholder small { color:#d9c6a3; letter-spacing:.12em; }
