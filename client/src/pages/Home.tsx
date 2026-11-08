@@ -246,7 +246,7 @@ const products: Product[] = [
     category: "ESTUDO BÍBLICO APLICADO",
     description: "Da leitura à compreensão: um salmo de cada vez.",
     image: "salmos-novo_cf504a57.webp",
-    href: "https://go.hotmart.com/V107769727G",
+    href: "https://pay.hotmart.com/V107769727G",
     tag: "LEITURA GUIADA",
     bullets: ["Contexto e aplicação", "Estudo para a rotina", "Leitura no seu tempo"],
   },
