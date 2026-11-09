@@ -370,11 +370,13 @@ const products: Product[] = [
     id: 31,
     title: "PNL Segredo",
     category: "DESENVOLVIMENTO PESSOAL · PNL",
-    description: "Conheça a apresentação do PNL Segredo e consulte os detalhes diretamente na página oficial.",
-    image: "",
+    description: "Um guia introdutório para conhecer conceitos de Programação Neurolinguística e explorar comunicação, padrões de pensamento e objetivos.",
+    image: "pnl-segredo.jpg",
     href: "https://pnlsegredo-6ghqgqri.manus.space/",
+    presentationUrl: "/pnl-segredo",
+    actionLabel: "Acessar o e-book",
     tag: "NOVA SELEÇÃO",
-    bullets: ["Acesse a página oficial do PNL Segredo", "Conheça a proposta e os detalhes do conteúdo", "Consulte as informações diretamente no site"],
+    bullets: ["Conceitos introdutórios de PNL", "Reflexões sobre comunicação e hábitos", "Exercícios para definir objetivos com clareza"],
   },
 ];
 
