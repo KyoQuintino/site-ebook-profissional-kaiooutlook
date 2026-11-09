@@ -16,6 +16,7 @@ function Router() {
       <Route path={"/como-fazer-amigos-e-influenciar-pessoas"} component={BookLanding} />
       <Route path={"/triade-do-tempo"} component={BookLanding} />
       <Route path={"/101-sucos-detox"} component={BookLanding} />
+      <Route path={"/pnl-segredo"} component={BookLanding} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
