@@ -502,7 +502,7 @@ export default function Home() {
           <div className="product-grid">
             {filtered.map((product) => (
               <article className="product-card" key={product.id}>
-                <button className="product-cover-button" onClick={() => product.id === 31 ? window.open(product.href, "_blank", "noopener,noreferrer") : setSelected(product)} aria-label={product.id === 31 ? `Abrir página oficial de ${product.title}` : `Visualização rápida de ${product.title}`}><Cover product={product} variant="card" /><span className="quick-view">{product.id === 31 ? "Acessar página oficial" : "Visualização rápida"} <ArrowUpRight size={14} /></span></button>
+                <button className="product-cover-button" onClick={() => setSelected(product)} aria-label={`Visualização rápida de ${product.title}`}><Cover product={product} variant="card" /><span className="quick-view">"Visualização rápida" <ArrowUpRight size={14} /></span></button>
                 <div className="product-info">
                   <span className="product-category">{product.category}</span>
                   <span className="product-tag">{product.tag}</span>
