@@ -66,6 +66,34 @@ const landings: LandingData[] = [
     ],
   },
   {
+    path: "/pnl-segredo",
+    eyebrow: "DESENVOLVIMENTO PESSOAL · PROGRAMAÇÃO NEUROLINGUÍSTICA",
+    title: "Descubra o poder da sua mente.",
+    accent: "Transforme sua forma de agir.",
+    author: "Digital Quintino",
+    description: "Um guia introdutório sobre Programação Neurolinguística, com conceitos e exercícios de reflexão para observar padrões de pensamento, comunicação e comportamento.",
+    image: "/assets/pnl-segredo.jpg",
+    checkout: "https://pnlsegredo-6ghqgqri.manus.space/",
+    introTitle: "Pequenas mudanças na forma de pensar podem abrir novas perspectivas.",
+    intro: "A Programação Neurolinguística (PNL) reúne modelos e técnicas de comunicação e desenvolvimento pessoal. Este material apresenta a proposta de forma acessível, convidando você a observar hábitos, linguagem, objetivos e respostas do dia a dia. Use as ideias como ferramentas de reflexão — sem promessas de resultados garantidos.",
+    benefits: [
+      { title: "Perceba seus padrões", text: "Observe pensamentos, hábitos de linguagem e respostas que influenciam suas decisões cotidianas." },
+      { title: "Comunique-se com clareza", text: "Explore formas de escuta, perguntas e comunicação mais consciente nas relações." },
+      { title: "Defina objetivos possíveis", text: "Transforme intenções genéricas em objetivos claros e passos que possam ser acompanhados." },
+    ],
+    bullets: [
+      "Conceitos introdutórios de Programação Neurolinguística",
+      "Exercícios de reflexão sobre linguagem, hábitos e objetivos",
+      "Estratégias de comunicação e atenção aplicáveis ao cotidiano",
+      "Leitura digital para consultar no seu próprio ritmo"
+    ],
+    faq: [
+      { question: "O que é PNL?", answer: "PNL é a sigla para Programação Neurolinguística, uma abordagem de desenvolvimento pessoal e comunicação que propõe observar a relação entre linguagem, padrões de pensamento e comportamento. Suas alegações devem ser avaliadas criticamente e não substituem práticas clínicas validadas." },
+      { question: "Este e-book substitui terapia ou orientação profissional?", answer: "Não. O conteúdo é educativo e não substitui acompanhamento psicológico, médico ou outro atendimento profissional." },
+      { question: "Como acesso o material?", answer: "Use o botão de acesso para abrir a página atualmente vinculada ao produto e conferir as condições e instruções de compra." },
+    ],
+  },
+  {
     path: "/101-sucos-detox",
     eyebrow: "UM RITUAL SIMPLES PARA A SUA ROTINA",
     title: "Mais sabor.",
