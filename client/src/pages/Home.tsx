@@ -425,19 +425,7 @@ const products: Product[] = [
   },
 
 
-  {
-    id: 36,
-    title: "As 7 Leis Espirituais para o Sucesso",
-    category: "ESPIRITUALIDADE · AUTOCONHECIMENTO · PROPÓSITO",
-    description: "Um guia independente de reflexão inspirado em sete princípios espirituais, com temas de consciência, propósito, equilíbrio e autoconhecimento para o dia a dia.",
-    image: "",
-    imageFit: "contain",
-    href: "https://as-7-leis-espirituais.vercel.app/",
-    presentationUrl: "https://as-7-leis-espirituais.vercel.app/",
-    actionLabel: "Conhecer o e-book",
-    tag: "NOVO NA COLEÇÃO",
-    bullets: ["Reflexões inspiradas nas sete leis espirituais", "Temas de propósito, consciência e equilíbrio", "Acesse a página de apresentação para conhecer o guia"],
-  },
+
 
 ];
 
