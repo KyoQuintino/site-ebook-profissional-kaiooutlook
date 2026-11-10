@@ -110,3 +110,121 @@ h1 i,h2 i { color:var(--terracotta); font-weight:400; }
 /* Keep catalog and quick-view covers with contain mode fully visible. */
 .product-card .cover.cover-image-contain img,
 .cover.cover-image-contain img { object-fit: contain; }
+
+
+/* Ajuste responsivo do catálogo: duas colunas no celular e capas sem cortes. */
+.product-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 42px 22px;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+.product-cover-button {
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+}
+.product-card .cover-card {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  display: grid;
+  place-items: center;
+  background: #e8e4da;
+}
+.product-card .cover-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.product-info {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+.product-info h3 {
+  min-height: 2.3em;
+}
+.product-info p {
+  flex: 1 1 auto;
+  min-height: 4.6em;
+}
+.product-footer {
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+.product-footer .details-link {
+  min-width: 0;
+  text-align: left;
+  line-height: 1.35;
+}
+.product-footer > a {
+  flex: 0 0 29px;
+}
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 34px 16px;
+  }
+}
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 14px;
+  }
+  .product-card .cover-card {
+    aspect-ratio: 3 / 4;
+  }
+  .product-info {
+    padding-top: 11px;
+  }
+  .product-category {
+    font-size: 8px;
+    line-height: 1.4;
+  }
+  .product-tag {
+    font-size: 7px;
+    line-height: 1.4;
+    letter-spacing: .07em;
+  }
+  .product-info h3 {
+    min-height: 2.4em;
+    margin: 7px 0;
+    font-size: clamp(14px, 3.8vw, 17px);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  .product-info p {
+    min-height: 4.5em;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .product-footer {
+    gap: 6px;
+    padding-top: 13px;
+  }
+  .details-link {
+    gap: 4px;
+    font-size: 9px;
+    line-height: 1.25;
+  }
+  .details-link svg {
+    width: 12px;
+    height: 12px;
+    flex: 0 0 auto;
+  }
+  .product-footer > a {
+    flex-basis: 26px;
+    width: 26px;
+    height: 26px;
+  }
+}
