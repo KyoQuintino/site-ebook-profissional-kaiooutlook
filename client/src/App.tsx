@@ -38,7 +38,7 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
-          <WouterRouter base={import.meta.env.BASE_URL.replace(/\\/$/, "")}><AppRoutes /></WouterRouter>
+          <WouterRouter base={import.meta.env.BASE_URL.slice(0, -1)}><AppRoutes /></WouterRouter>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
