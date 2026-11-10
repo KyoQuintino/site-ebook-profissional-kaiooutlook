@@ -400,7 +400,7 @@ const products: Product[] = [
     title: "Por Que Fazemos o Que Fazemos?",
     category: "PROPÓSITO · TRABALHO · MOTIVAÇÃO",
     description: "Uma reflexão de Mario Sergio Cortella sobre propósito, trabalho, motivação, ética e o sentido por trás das escolhas cotidianas.",
-    image: "por-que-fazemos-o-que-fazemos.webp",
+    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663213089318/vvuGhsYpoDIKSniS.png",
     imageFit: "contain",
     imageAspectRatio: "landscape",
     href: "https://proposito-hxcr3ddi.manus.space/",
@@ -415,7 +415,7 @@ const products: Product[] = [
     title: "Parábolas de Jesus Explicadas",
     category: "ESTUDO BÍBLICO · ENSINAMENTOS DE JESUS",
     description: "Compreenda o contexto, a mensagem central e as aplicações dos ensinamentos de Jesus em uma leitura clara e acolhedora.",
-    image: "parabolas-jesus-capa.webp",
+    image: "https://parabolas-bnki9eq8.manus.space/assets/parabolas-jesus-capa.png",
     imageFit: "contain",
     href: "https://parabolas-bnki9eq8.manus.space/",
     presentationUrl: "https://parabolas-bnki9eq8.manus.space/",
@@ -433,7 +433,7 @@ function Cover({ product, variant = "card" }: { product: Product; variant?: "car
   return (
     <div className={`cover cover-${variant}${product.imageFit === "contain" ? " cover-image-contain" : ""}${product.imageAspectRatio === "landscape" ? " cover-image-landscape" : ""}`}>
       {product.image ? (
-        <img src={product.image.startsWith("/") ? `${import.meta.env.BASE_URL}${product.image.slice(1)}` : `${import.meta.env.BASE_URL}assets/${product.image}`} alt={`Capa do e-book ${product.title}`} />
+        <img src={product.image.startsWith("http") ? product.image : product.image.startsWith("/") ? `${import.meta.env.BASE_URL}${product.image.slice(1)}` : `${import.meta.env.BASE_URL}assets/${product.image}`} alt={`Capa do e-book ${product.title}`} />
       ) : (
         <div className="cover-placeholder" role="img" aria-label={`Capa provisória de ${product.title}`}>
           <span>DIGITAL QUINTINO</span>
