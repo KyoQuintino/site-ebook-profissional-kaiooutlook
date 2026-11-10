@@ -10,3 +10,39 @@
   .book-cover-pnl { width: min(245px, 72%); }
   .book-checkout-cover-pnl { width: 105px; max-height: 155px; }
 }
+
+/* PNL Segredo: force the full original artwork to remain visible in every cover placement. */
+.book-visual .book-cover.book-cover-pnl {
+  width: min(320px, 70%);
+  height: auto;
+  aspect-ratio: auto;
+  background: transparent;
+}
+.book-visual .book-cover.book-cover-pnl img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+}
+.book-checkout img.book-checkout-cover-pnl {
+  display: block;
+  width: 155px;
+  height: auto;
+  max-height: 220px;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  background: #e9e4d9;
+}
+@media (max-width: 600px) {
+  .book-visual .book-cover.book-cover-pnl {
+    width: min(245px, 72%);
+  }
+  .book-checkout img.book-checkout-cover-pnl {
+    width: 105px;
+    max-height: 155px;
+  }
+}
