@@ -423,13 +423,24 @@ const products: Product[] = [
     tag: "ESTUDO BÍBLICO",
     bullets: ["Contexto das parábolas de Jesus", "Mensagem central e ensinamentos", "Aplicações práticas para a vida cotidiana"],
   },
-
-
-
+  {
+    id: 36,
+    title: "O Corpo Fala",
+    category: "COMUNICAÇÃO · LINGUAGEM CORPORAL",
+    description: "Uma leitura sobre a linguagem não verbal e como gestos, posturas e atitudes também participam da comunicação humana.",
+    image: "o-corpo-fala-capa.svg",
+    imageFit: "contain",
+    href: "https://o-corpo-fala-gpt.vercel.app/",
+    presentationUrl: "https://o-corpo-fala-gpt.vercel.app/",
+    actionLabel: "Conhecer o e-book",
+    tag: "NOVA LEITURA",
+    author: "Pierre Weil e Roland Tompakow",
+    bullets: ["Observe gestos, posturas e expressões", "Explore a comunicação para além das palavras", "Acesse a página de apresentação do e-book"],
+  },
 
 ];
 
-const categories = Array.from(new Set(products.map((product) => product.category)));
+const categories = Array.from(new Set(products.map((product) => product.category))).sort((a, b) => a.localeCompare(b, "pt-BR", { sensitivity: "base" }));
 const featured = [products[18], products[19], products[17]];
 
 function Cover({ product, variant = "card" }: { product: Product; variant?: "card" | "hero" | "detail" }) {
@@ -462,7 +473,7 @@ export default function Home() {
       const matchesCategory = filter === "Todas as categorias" || product.category === filter;
       const matchesQuery = !normalizedQuery || `${product.title} ${product.category}`.toLowerCase().includes(normalizedQuery);
       return matchesCategory && matchesQuery;
-    });
+    }).sort((a, b) => a.title.localeCompare(b.title, "pt-BR", { sensitivity: "base", numeric: true }));
   }, [filter, query]);
 
   const scrollToCatalog = () => {
@@ -539,7 +550,7 @@ export default function Home() {
         <section className="catalog section-wrap" id="colecao">
           <div className="catalog-intro">
             <div><div className="eyebrow">A COLEÇÃO DIGITALQUINTINO</div><h2>Escolha a próxima <i>virada.</i></h2></div>
-            <p>31 leituras para alinhar o que você sente com o que quer construir. Explore por tema, encontre a que conversa com seu momento e leia no seu ritmo.</p>
+            <p>Uma coleção de leituras para alinhar o que você sente com o que quer construir. Explore por tema, encontre a que conversa com seu momento e leia no seu ritmo.</p>
           </div>
           <div className="catalog-tools">
             <label className="select-wrap"><span>Filtrar por categoria</span><select value={filter} onChange={(event) => setFilter(event.target.value)}><option>Todas as categorias</option>{categories.map((category) => <option key={category}>{category}</option>)}</select><ChevronDown size={16} /></label>
