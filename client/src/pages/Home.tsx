@@ -444,10 +444,20 @@ const categories = Array.from(new Set(products.map((product) => product.category
 const featured = [products[18], products[19], products[17]];
 
 function Cover({ product, variant = "card" }: { product: Product; variant?: "card" | "hero" | "detail" }) {
+  const imageSrc = product.image
+    ? product.image.startsWith("http")
+      ? product.image
+      : product.image.startsWith("/")
+        ? `${import.meta.env.BASE_URL}${product.image.slice(1)}`
+        : `${import.meta.env.BASE_URL}assets/${product.image}`
+    : "";
   return (
     <div className={`cover cover-${variant}${product.imageFit === "contain" ? " cover-image-contain" : ""}${product.imageAspectRatio === "landscape" ? " cover-image-landscape" : ""}`}>
       {product.image ? (
-        <img src={product.image.startsWith("http") ? product.image : product.image.startsWith("/") ? `${import.meta.env.BASE_URL}${product.image.slice(1)}` : `${import.meta.env.BASE_URL}assets/${product.image}`} alt={`Capa do e-book ${product.title}`} />
+        <>
+          <img className="cover-backdrop" src={imageSrc} alt="" aria-hidden="true" />
+          <img className="cover-art" src={imageSrc} alt={`Capa do e-book ${product.title}`} />
+        </>
       ) : (
         <div className="cover-placeholder" role="img" aria-label={`Capa provisória de ${product.title}`}>
           <span>DIGITAL QUINTINO</span>
