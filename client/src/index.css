@@ -284,3 +284,38 @@ h1 i,h2 i { color:var(--terracotta); font-weight:400; }
 .featured-card .cover-card.cover-image-contain img {
   object-fit: contain;
 }
+
+
+/* Capas da vitrine: proporção vertical 3:4, com preenchimento visual sem cortar a arte original. */
+.product-card .cover-card,
+.featured-card .cover-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  isolation: isolate;
+  background: #20251f;
+}
+.product-card .cover-card .cover-backdrop,
+.featured-card .cover-card .cover-backdrop {
+  position: absolute;
+  inset: -8%;
+  z-index: 0;
+  display: block;
+  width: 116%;
+  height: 116%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(16px) brightness(.68) saturate(.82);
+  transform: scale(1.08);
+}
+.product-card .cover-card .cover-art,
+.featured-card .cover-card .cover-art {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
