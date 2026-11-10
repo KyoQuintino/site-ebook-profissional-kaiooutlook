@@ -1,14 +1,14 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, Router as WouterRouter } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 
 import BookLanding from "@/pages/BookLanding";
 
-function Router() {
+function AppRoutes() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
@@ -38,7 +38,7 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
-          <Router />
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\\/$/, "")}><AppRoutes /></WouterRouter>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
