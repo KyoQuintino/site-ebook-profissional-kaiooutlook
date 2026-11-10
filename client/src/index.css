@@ -106,3 +106,7 @@ h1 i,h2 i { color:var(--terracotta); font-weight:400; }
 .product-footer > a { flex: 0 0 29px; }
 @media (max-width: 900px) { .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 16px; } .product-info h3 { font-size: 15px; } }
 @media (max-width: 640px) { .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 10px; } .product-info { padding-top: 10px; } .product-category { font-size: 7px; line-height: 1.35; } .product-tag { font-size: 6px; line-height: 1.35; letter-spacing: .06em; } .product-info h3 { min-height: 2.5em; margin: 6px 0; font-size: 12px; line-height: 1.2; overflow-wrap: anywhere; } .product-info p { min-height: 4.5em; font-size: 9px; line-height: 1.5; } .product-footer { gap: 5px; padding-top: 12px; } .details-link { gap: 3px; font-size: 7px; line-height: 1.2; } .details-link svg { width: 11px; height: 11px; flex: 0 0 auto; } .product-footer > a { flex-basis: 24px; width: 24px; height: 24px; } .product-footer > a svg { width: 14px; height: 14px; } }
+
+/* Keep catalog and quick-view covers with contain mode fully visible. */
+.product-card .cover.cover-image-contain img,
+.cover.cover-image-contain img { object-fit: contain; }
