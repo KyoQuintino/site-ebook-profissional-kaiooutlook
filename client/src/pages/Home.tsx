@@ -403,7 +403,7 @@ function Cover({ product, variant = "card" }: { product: Product; variant?: "car
   return (
     <div className={`cover cover-${variant}${product.imageFit === "contain" ? " cover-image-contain" : ""}${product.imageAspectRatio === "landscape" ? " cover-image-landscape" : ""}`}>
       {product.image ? (
-        <img src={product.image.startsWith("/") ? `${import.meta.env.BASE_URL}${product.image.replace(/^\\/+/, "")}` : `${import.meta.env.BASE_URL}assets/${product.image}`} alt={`Capa do e-book ${product.title}`} />
+        <img src={product.image.startsWith("/") ? `${import.meta.env.BASE_URL}${product.image.slice(1)}` : `${import.meta.env.BASE_URL}assets/${product.image}`} alt={`Capa do e-book ${product.title}`} />
       ) : (
         <div className="cover-placeholder" role="img" aria-label={`Capa provisória de ${product.title}`}>
           <span>DIGITAL QUINTINO</span>
