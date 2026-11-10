@@ -372,6 +372,7 @@ const products: Product[] = [
     category: "DESENVOLVIMENTO PESSOAL · PNL",
     description: "Um guia introdutório para conhecer conceitos de Programação Neurolinguística e explorar comunicação, padrões de pensamento e objetivos.",
     image: "pnl-segredo.jpg",
+    imageFit: "contain",
     href: "https://pnlsegredo-6ghqgqri.manus.space/",
     presentationUrl: "/pnl-segredo",
     actionLabel: "Acessar o e-book",
