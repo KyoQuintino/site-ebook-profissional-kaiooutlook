@@ -394,6 +394,36 @@ const products: Product[] = [
     bullets: ["Conheça a apresentação completa do e-book", "Explore reflexões sobre períodos desafiadores e recomeços", "Acesse a página oficial para conferir os detalhes"],
   },
 
+
+  {
+    id: 34,
+    title: "Por Que Fazemos o Que Fazemos?",
+    category: "PROPÓSITO · TRABALHO · MOTIVAÇÃO",
+    description: "Uma reflexão de Mario Sergio Cortella sobre propósito, trabalho, motivação, ética e o sentido por trás das escolhas cotidianas.",
+    image: "por-que-fazemos-o-que-fazemos.webp",
+    imageFit: "contain",
+    imageAspectRatio: "landscape",
+    href: "https://proposito-hxcr3ddi.manus.space/",
+    presentationUrl: "https://proposito-hxcr3ddi.manus.space/",
+    actionLabel: "Conhecer o e-book",
+    tag: "PROPÓSITO E TRABALHO",
+    author: "Mario Sergio Cortella",
+    bullets: ["Reflexões sobre propósito e sentido do trabalho", "Motivação, ética e escolhas cotidianas", "Acesse a página de apresentação para conhecer a obra"],
+  },
+  {
+    id: 35,
+    title: "Parábolas de Jesus Explicadas",
+    category: "ESTUDO BÍBLICO · ENSINAMENTOS DE JESUS",
+    description: "Compreenda o contexto, a mensagem central e as aplicações dos ensinamentos de Jesus em uma leitura clara e acolhedora.",
+    image: "parabolas-jesus-capa.webp",
+    imageFit: "contain",
+    href: "https://parabolas-bnki9eq8.manus.space/",
+    presentationUrl: "https://parabolas-bnki9eq8.manus.space/",
+    actionLabel: "Conhecer o e-book",
+    tag: "ESTUDO BÍBLICO",
+    bullets: ["Contexto das parábolas de Jesus", "Mensagem central e ensinamentos", "Aplicações práticas para a vida cotidiana"],
+  },
+
 ];
 
 const categories = Array.from(new Set(products.map((product) => product.category)));
