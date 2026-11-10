@@ -379,6 +379,21 @@ const products: Product[] = [
     tag: "NOVA SELEÇÃO",
     bullets: ["Conceitos introdutórios de PNL", "Reflexões sobre comunicação e hábitos", "Exercícios para definir objetivos com clareza"],
   },
+
+  {
+    id: 33,
+    title: "O Pior Ano da Sua Vida",
+    category: "DESENVOLVIMENTO PESSOAL · SUPERAÇÃO",
+    description: "Uma leitura para atravessar períodos difíceis, reconhecer aprendizados e encontrar caminhos para recomeçar.",
+    image: "",
+    imageFit: "contain",
+    href: "https://kiwify.app/xZnUEqX",
+    presentationUrl: "https://piorano-jdavg4xc.manus.space/",
+    actionLabel: "Comprar na Kiwify",
+    tag: "NOVA SELEÇÃO",
+    bullets: ["Conheça a apresentação completa do e-book", "Explore reflexões sobre períodos desafiadores e recomeços", "Acesse a página oficial para conferir os detalhes"],
+  },
+
 ];
 
 const categories = Array.from(new Set(products.map((product) => product.category)));
@@ -392,8 +407,8 @@ function Cover({ product, variant = "card" }: { product: Product; variant?: "car
       ) : (
         <div className="cover-placeholder" role="img" aria-label={`Capa provisória de ${product.title}`}>
           <span>DIGITAL QUINTINO</span>
-          <strong>PNL<br />SEGREDO</strong>
-          <small>DESENVOLVIMENTO PESSOAL</small>
+          <strong>{product.title}</strong>
+          <small>{product.category}</small>
         </div>
       )}
       <span className="cover-gloss" />
