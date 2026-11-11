@@ -300,7 +300,7 @@ const products: Product[] = [
     category: "VIDA · REFLEXÃO",
     description: "Uma reflexão de Mario Sergio Cortella sobre o que torna a vida importante e significativa.",
     image: "viver-em-paz-para-morrer-em-paz-capa.jpg",
-    href: "https://go.hotmart.com/U108118072R",
+    href: "https://pay.hotmart.com/U108118072R",
     tag: "NOVA SELEÇÃO",
     author: "Mario Sergio Cortella",
     bullets: ["Reflexões sobre presença, propósito e legado", "Leitura para repensar o que importa", "Atendimento para informações e disponibilidade"],
