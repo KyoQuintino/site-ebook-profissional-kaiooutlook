@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#06172c"/><stop offset=".55" stop-color="#092e55"/><stop offset="1" stop-color="#020b18"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#ffd66b" stop-opacity=".9"/><stop offset=".35" stop-color="#19a9ff" stop-opacity=".28"/><stop offset="1" stop-color="#19a9ff" stop-opacity="0"/></radialGradient>
+ <linearGradient id="gold" x2="0" y2="1"><stop stop-color="#fff1a8"/><stop offset=".45" stop-color="#ffc52f"/><stop offset="1" stop-color="#d88a08"/></linearGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="20"/></filter>
+ <filter id="shadow"><feGaussianBlur stdDeviation="5"/></filter>
+</defs>
+<rect width="600" height="800" fill="url(#bg)"/>
+<circle cx="440" cy="215" r="210" fill="url(#glow)"/>
+<circle cx="130" cy="620" r="180" fill="url(#glow)" opacity=".45"/>
+<g stroke="#43baff" stroke-width="2" opacity=".35" fill="none">
+ <path d="M45 130L160 70 270 130 350 55 475 110 555 45M40 280L145 220 250 280 360 210 480 270 570 205M40 490L145 430 260 490 360 420 475 485 570 415"/>
+ <path d="M160 70L145 220 145 430 130 620M270 130L250 280 260 490 300 710M350 55L360 210 360 420 400 620M475 110L480 270 475 485 500 690"/>
+</g>
+<g transform="translate(300 220)" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M-8 -92C-50 -126 -111 -90 -109 -36C-147 -12 -132 49 -93 62C-92 111 -42 127 -8 94C25 125 79 104 80 65C125 46 128 -8 92 -33C104 -83 49 -121 12 -94C7 -108 0 -108 -8 -92Z"/>
+ <path d="M0 -88V92M-10 -72C-48 -70 -69 -42 -52 -18C-85 -5 -76 34 -44 37C-58 63 -33 83 -9 69M11 -72C48 -70 69 -42 52 -18C85 -5 76 34 44 37C58 63 33 83 9 69" opacity=".8"/>
+ <path d="M-75 -40L-112 -57M-91 35L-128 48M76 -42L113 -60M89 34L127 48M-3 -110L-3 -140M-5 111L-5 139"/>
+</g>
+<g fill="#fff" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
+ <text x="300" y="55" font-size="21" font-weight="700" letter-spacing="3" fill="#f8d879">DESPERTE TODO O POTENCIAL DA SUA MENTE</text>
+ <text x="300" y="390" font-size="68" font-weight="900" letter-spacing="1">MENTES</text>
+ <text x="300" y="465" font-size="76" font-weight="900" fill="url(#gold)" letter-spacing="-1">BRILHANTES</text>
+ <text x="300" y="510" font-size="23" fill="#eaf5ff">Técnicas de Memorização,</text>
+ <text x="300" y="540" font-size="23" fill="#eaf5ff">Criatividade e Aprendizado</text>
+</g>
+<path d="M78 578H522" stroke="url(#gold)" stroke-width="3" opacity=".9"/>
+<g fill="#fff" font-family="Arial,Helvetica,sans-serif" text-anchor="middle">
+ <text x="300" y="625" font-size="20" font-weight="700" fill="#ffd66b">MEMÓRIA • CRIATIVIDADE • APRENDIZADO</text>
+ <text x="300" y="686" font-size="26" font-weight="700">Alberto Del ’Isola</text>
+ <text x="300" y="746" font-size="16" letter-spacing="4" fill="#b7d9f2">DIGITAL QUINTINO</text>
+</g>
+<rect x="14" y="14" width="572" height="772" rx="16" fill="none" stroke="#f6c64b" stroke-width="2" opacity=".7"/>
+</svg>
