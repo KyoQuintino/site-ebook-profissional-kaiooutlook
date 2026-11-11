@@ -450,6 +450,20 @@ const products: Product[] = [
     author: "Pierre Weil e Roland Tompakow",
     bullets: ["Observe gestos, posturas e expressões", "Explore a comunicação para além das palavras", "Acesse a página de apresentação do e-book"],
   },
+  {
+    id: 38,
+    title: "A Arte da Guerra — Nicolau Maquiavel",
+    category: "ESTRATÉGIA · LIDERANÇA · HISTÓRIA",
+    description: "Explore o clássico de Nicolau Maquiavel e suas reflexões sobre organização militar, disciplina, preparação, comando e estratégia.",
+    image: "https://raw.githubusercontent.com/KyoQuintino/A-Arte-da-Guerra-Os-Princ-pios-da-Estrat-gia-e-da-Lideran-a-Nicolau-Maquiavel/main/assets/capa-principal.webp",
+    imageFit: "contain",
+    href: "https://a-arte-da-guerra.vercel.app/",
+    presentationUrl: "https://a-arte-da-guerra.vercel.app/",
+    actionLabel: "Conhecer o e-book",
+    tag: "NOVA LEITURA",
+    author: "Nicolau Maquiavel",
+    bullets: ["Reflexões sobre estratégia e organização", "Liderança, disciplina e preparação", "Acesse a apresentação completa e o checkout na página oficial"],
+  },
 
 ];
 
