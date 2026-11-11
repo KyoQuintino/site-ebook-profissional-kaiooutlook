@@ -428,7 +428,7 @@ const products: Product[] = [
     title: "Mentes Brilhantes — Técnicas de Memorização, Criatividade e Aprendizado",
     category: "DESENVOLVIMENTO PESSOAL · APRENDIZADO",
     description: "Aprenda técnicas para desenvolver a memória, trabalhar com números e idiomas, estimular a criatividade, usar mapas mentais e aprimorar a leitura e suas habilidades intelectuais.",
-    image: "",
+    image: "mentes-brilhantes-capa.svg",
     imageFit: "contain",
     href: "https://pay.hotmart.com/T108437058K",
     actionLabel: "Comprar na Hotmart",
