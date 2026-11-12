@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://digitalquintino-ebook.vercel.app/sitemap.xml

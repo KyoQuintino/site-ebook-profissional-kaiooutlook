@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ArrowDown, ArrowLeft, ArrowRight, Check, ChevronDown, ExternalLink, ShieldCheck, Sparkles } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import "./BookLanding.css";
@@ -121,6 +122,19 @@ const landings: LandingData[] = [
 export default function BookLanding() {
   const [location] = useLocation();
   const data = landings.find((landing) => location.replace(/\/$/, "") === landing.path) ?? landings[0];
+
+  useEffect(() => {
+    const pageTitle = `${data.title} ${data.accent} | DigitalQuintino`;
+    document.title = pageTitle;
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (description) description.content = data.description;
+    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (canonical) canonical.href = `${window.location.origin}${data.path}`;
+    const ogTitle = document.querySelector<HTMLMetaElement>('meta[property="og:title"]');
+    if (ogTitle) ogTitle.content = pageTitle;
+    const ogDescription = document.querySelector<HTMLMetaElement>('meta[property="og:description"]');
+    if (ogDescription) ogDescription.content = data.description;
+  }, [data]);
 
   return (
     <main className="book-landing">

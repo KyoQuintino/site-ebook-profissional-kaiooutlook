@@ -319,3 +319,45 @@ h1 i,h2 i { color:var(--terracotta); font-weight:400; }
   object-fit: contain;
   object-position: center;
 }
+
+
+/* Auditoria DigitalQuintino: grade legível e confortável em telas pequenas. */
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 14px;
+  }
+  .product-info { padding-top: 12px; }
+  .product-category { font-size: 8px; line-height: 1.4; }
+  .product-tag { font-size: 7px; line-height: 1.4; letter-spacing: .07em; }
+  .product-info h3 {
+    min-height: 2.4em;
+    margin: 7px 0;
+    font-size: clamp(14px, 3.8vw, 17px);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  .product-info p { min-height: 4.5em; font-size: 10px; line-height: 1.5; }
+  .product-footer { gap: 6px; padding-top: 13px; }
+  .details-link { gap: 4px; font-size: 9px; line-height: 1.25; }
+  .details-link svg { width: 12px; height: 12px; flex: 0 0 auto; }
+  .product-footer > a { flex: 0 0 28px; width: 28px; height: 28px; }
+  .product-footer > a svg { width: 15px; height: 15px; }
+}
+@media (max-width: 360px) {
+  .product-grid { gap: 28px 10px; }
+  .product-info h3 { font-size: 14px; }
+  .product-info p { font-size: 9px; }
+  .details-link { font-size: 8px; }
+}
+
+/* Uma única imagem por capa evita duplicação de elementos e decodificação. */
+.cover-art {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
