@@ -95,7 +95,7 @@ const products: Product[] = [
     category: "LEITURA BÍBLICA E PENSAMENTO CRÍTICO",
     description: "Uma leitura para revisitar temas bíblicos com curiosidade, respeito e pensamento crítico.",
     image: "biblia-nao-leu.webp",
-    href: "https://pay.hotmart.com/U107490929E",
+    href: "https://go.hotmart.com/U107490929E",
     tag: "LEITURA REFLEXIVA",
     bullets: ["Perguntas para olhar a Bíblia por outro ângulo", "Interpretações e reflexões com respeito", "Acesso digital imediato após a compra"],
   },
@@ -195,7 +195,7 @@ const products: Product[] = [
     category: "FÉ EM FAMÍLIA · INFÂNCIA",
     description: "Pequenas verdades. Grandes sementes para uma fé viva, compartilhada e cheia de ternura.",
     image: "jesus_abe8e523.webp",
-    href: "https://pay.hotmart.com/V107625668R",
+    href: "https://go.hotmart.com/V107625668R",
     tag: "EM FAMÍLIA",
     bullets: ["Conteúdo para conversar com crianças", "Histórias e atividades", "Um momento para compartilhar"],
   },
@@ -245,7 +245,7 @@ const products: Product[] = [
     category: "ESTUDO BÍBLICO APLICADO",
     description: "Da leitura à compreensão: um salmo de cada vez.",
     image: "salmos-novo_cf504a57.webp",
-    href: "https://pay.hotmart.com/V107769727G",
+    href: "https://go.hotmart.com/V107769727G",
     tag: "LEITURA GUIADA",
     bullets: ["Contexto e aplicação", "Estudo para a rotina", "Leitura no seu tempo"],
   },
@@ -267,7 +267,7 @@ const products: Product[] = [
     description: "Perguntas mais precisas são o começo de uma mente mais livre.",
     image: "mais-esperto-que-o-diabo.webp",
     imageFit: "contain",
-    href: "https://pay.hotmart.com/Q107892470J",
+    href: "https://go.hotmart.com/Q107892470J",
     tag: "MENTE LIVRE",
     bullets: ["Reflexões sobre propósito", "Perguntas para decidir melhor", "Leitura digital imediata"],
   },
@@ -277,7 +277,7 @@ const products: Product[] = [
     category: "AUTOCONHECIMENTO · BEM-ESTAR",
     description: "A vida que você quer também se constrói em pequenos passos.",
     image: "efeito-novo_553926f4.webp",
-    href: "https://pay.hotmart.com/M107928910P",
+    href: "https://go.hotmart.com/M107928910P",
     tag: "PEQUENOS PASSOS",
     bullets: ["Princípios para consistência", "Aplicações para a vida real", "Acesso imediato"],
   },
@@ -298,7 +298,7 @@ const products: Product[] = [
     category: "VIDA · REFLEXÃO",
     description: "Uma reflexão de Mario Sergio Cortella sobre o que torna a vida importante e significativa.",
     image: "viver-em-paz-para-morrer-em-paz-capa.jpg",
-    href: "https://pay.hotmart.com/U108118072R",
+    href: "https://go.hotmart.com/U108118072R",
     tag: "NOVA SELEÇÃO",
     author: "Mario Sergio Cortella",
     bullets: ["Reflexões sobre presença, propósito e legado", "Leitura para repensar o que importa", "Atendimento para informações e disponibilidade"],
@@ -321,7 +321,7 @@ const products: Product[] = [
     description: "Uma coletânea de autores diversos com reflexões bíblicas, estudos e testemunho sobre oração, fé e intercessão — para ler com calma e levar para a rotina.",
     image: "o-poder-da-oracao-capa.webp",
     imageFit: "contain",
-    href: "https://pay.hotmart.com/D107958781O",
+    href: "https://go.hotmart.com/D107958781O",
     tag: "NOVA NA COLEÇÃO",
     bullets: ["PDF digital com 104 páginas", "Reflexões sobre oração, fé e intercessão", "Estudos bíblicos e testemunho incluído na coletânea"],
   },
@@ -428,7 +428,7 @@ const products: Product[] = [
     description: "Aprenda técnicas para desenvolver a memória, trabalhar com números e idiomas, estimular a criatividade, usar mapas mentais e aprimorar a leitura e suas habilidades intelectuais.",
     image: "mentes-brilhantes-capa.svg",
     imageFit: "contain",
-    href: "https://pay.hotmart.com/T108437058K",
+    href: "https://go.hotmart.com/T108437058K",
     actionLabel: "Comprar na Hotmart",
     tag: "NOVA LEITURA",
     author: "Alberto Del ’Isola",
@@ -626,7 +626,7 @@ export default function Home() {
                   <h3>{product.title}</h3>
                   <p>{product.description}</p>
                   <div className="product-footer">
-                    <button className="details-link" onClick={() => setSelected(product)}>Conhecer esta leitura <ArrowRight size={15} /></button>
+                    <a className="details-link" href={product.href} target="_blank" rel="noreferrer" aria-label={`Conhecer o e-book ${product.title}`}>Conhecer o e-book <ArrowUpRight size={15} /></a>
                     <a href={product.href} target="_blank" rel="noreferrer" aria-label={product.actionLabel ? `${product.actionLabel}: ${product.title}` : `Comprar ${product.title}`}>
                       <ArrowUpRight size={17} />
                     </a>
