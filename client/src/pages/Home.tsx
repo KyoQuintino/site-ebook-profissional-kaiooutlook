@@ -453,7 +453,7 @@ const products: Product[] = [
     title: "40 Dias com Deus",
     category: "DEVOCIONAL · FÉ E ESPIRITUALIDADE",
     description: "Uma jornada de 40 dias para dedicar tempo à fé, à reflexão e à conexão com Deus.",
-    image: "https://drive.google.com/uc?export=view&id=10czF4fvDAqQ7qNj3a2BUKHsiJtETWQgC",
+    image: "/assets/40-dias-com-deus.jpg",
     imageFit: "contain",
     href: "https://40-dias-com-deus.vercel.app/",
     presentationUrl: "https://40-dias-com-deus.vercel.app/",
