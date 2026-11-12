@@ -361,3 +361,33 @@ h1 i,h2 i { color:var(--terracotta); font-weight:400; }
   object-fit: contain;
   object-position: center;
 }
+
+/* Vitrine padronizada: exatamente três e-books por linha em desktop, tablet e celular. */
+.product-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: clamp(8px, 2vw, 25px);
+  row-gap: clamp(24px, 4vw, 55px);
+}
+@media (max-width: 640px) {
+  .product-grid { gap: 24px 9px; }
+  .product-info { padding-top: 9px; }
+  .product-category { font-size: clamp(6px, 1.8vw, 8px); }
+  .product-tag { font-size: clamp(5px, 1.55vw, 7px); }
+  .product-info h3 {
+    min-height: 2.5em;
+    margin: 6px 0;
+    font-size: clamp(10px, 3.1vw, 14px);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  .product-info p {
+    min-height: 4.5em;
+    font-size: clamp(8px, 2.3vw, 10px);
+    line-height: 1.45;
+  }
+  .product-footer { gap: 4px; margin-top: 10px; }
+  .details-link { gap: 2px; font-size: clamp(6px, 1.9vw, 8px); }
+  .details-link svg { width: 10px; height: 10px; flex: 0 0 auto; }
+  .product-footer > a { flex: 0 0 23px; width: 23px; height: 23px; }
+  .product-footer > a svg { width: 13px; height: 13px; }
+}
