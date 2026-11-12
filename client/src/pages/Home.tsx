@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowDown,
   ArrowRight,
@@ -506,6 +506,18 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Product | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = "DigitalQuintino — E-books para viver melhor";
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (description) description.content = "Explore e-books sobre desenvolvimento pessoal, fé, família, bem-estar e liderança na coleção DigitalQuintino.";
+    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (canonical) canonical.href = `${window.location.origin}/`;
+    const ogTitle = document.querySelector<HTMLMetaElement>('meta[property="og:title"]');
+    if (ogTitle) ogTitle.content = document.title;
+    const ogDescription = document.querySelector<HTMLMetaElement>('meta[property="og:description"]');
+    if (ogDescription && description) ogDescription.content = description.content;
+  }, []);
 
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
