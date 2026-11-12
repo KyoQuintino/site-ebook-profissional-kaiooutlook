@@ -462,11 +462,11 @@ const products: Product[] = [
   },
   {
     id: 40,
-    title: "Armadura",
+    title: "Armadura de Deus",
     category: "FÉ · PROTEÇÃO ESPIRITUAL",
     description: "Um convite à reflexão sobre a armadura espiritual e os princípios bíblicos para fortalecer a fé no dia a dia.",
     image: "",
-    href: "https://go.hotmart.com/F108422325X",
+    href: "https://go.hotmart.com/H107959010L",
     actionLabel: "Conhecer o e-book",
     tag: "NOVA LEITURA",
     bullets: ["Reflexões sobre a armadura espiritual", "Princípios bíblicos para fortalecer a fé", "Acesso ao conteúdo pela página de compra"],
