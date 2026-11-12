@@ -287,7 +287,7 @@ const products: Product[] = [
     category: "AUTOCONHECIMENTO · PAZ E BEM-ESTAR",
     description: "Uma leitura sobre Ho'oponopono, consciência e os padrões mentais que podem limitar a vida.",
     image: "limite-zero-capa.jpg",
-    href: "https://kiwify.app/gaRRf1c",
+    href: "https://kiwify.app/LZgS6U2",
     tag: "NOVA SELEÇÃO",
     author: "Joe Vitale e Ihaleakala Hew Len",
     bullets: ["Reflexões sobre consciência e transformação pessoal", "Introdução ao método havaiano Ho'oponopono", "Atendimento para informações e disponibilidade"],
