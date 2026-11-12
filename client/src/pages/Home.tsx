@@ -449,6 +449,18 @@ const products: Product[] = [
     bullets: ["Observe gestos, posturas e expressões", "Explore a comunicação para além das palavras", "Acesse a página de apresentação do e-book"],
   },
   {
+    id: 39,
+    title: "40 Dias com Deus",
+    category: "DEVOCIONAL · FÉ E ESPIRITUALIDADE",
+    description: "Uma jornada de 40 dias para dedicar tempo à fé, à reflexão e à conexão com Deus.",
+    image: "",
+    href: "https://40-dias-com-deus.vercel.app/",
+    presentationUrl: "https://40-dias-com-deus.vercel.app/",
+    actionLabel: "Conhecer o e-book",
+    tag: "NOVA LEITURA",
+    bullets: ["Uma jornada de 40 dias de fé", "Momentos de reflexão e conexão com Deus", "Acesse a página de apresentação do e-book"],
+  },
+  {
     id: 38,
     title: "A Arte da Guerra — Nicolau Maquiavel",
     category: "ESTRATÉGIA · LIDERANÇA · HISTÓRIA",
