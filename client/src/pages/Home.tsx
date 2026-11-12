@@ -481,10 +481,13 @@ function Cover({ product, variant = "card" }: { product: Product; variant?: "car
   return (
     <div className={`cover cover-${variant}${product.imageFit === "contain" ? " cover-image-contain" : ""}${product.imageAspectRatio === "landscape" ? " cover-image-landscape" : ""}`}>
       {product.image ? (
-        <>
-          <img className="cover-backdrop" src={imageSrc} alt="" aria-hidden="true" />
-          <img className="cover-art" src={imageSrc} alt={`Capa do e-book ${product.title}`} />
-        </>
+        <img
+          className="cover-art"
+          src={imageSrc}
+          alt={`Capa do e-book ${product.title}`}
+          loading={variant === "hero" ? "eager" : "lazy"}
+          decoding="async"
+        />
       ) : (
         <div className="cover-placeholder" role="img" aria-label={`Capa provisória de ${product.title}`}>
           <span>DIGITAL QUINTINO</span>
@@ -526,7 +529,7 @@ export default function Home() {
           <span className="brand-mark">D</span>
           <span className="brand-name">Digital <em>Quintino</em></span>
         </a>
-        <nav className={`main-nav ${mobileOpen ? "is-open" : ""}`}>
+        <nav id="primary-navigation" aria-label="Navegação principal" className={`main-nav ${mobileOpen ? "is-open" : ""}`}>
           <a href="#colecao" onClick={() => setMobileOpen(false)}>Coleção</a>
           <a href="#curadoria" onClick={() => setMobileOpen(false)}>Curadoria</a>
           <a href="#sobre" onClick={() => setMobileOpen(false)}>Sobre</a>
@@ -541,7 +544,7 @@ export default function Home() {
         >
           {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
         </button>
-        <button className="menu-toggle" aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"} onClick={() => setMobileOpen((open) => !open)}>
+        <button className="menu-toggle" type="button" aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={mobileOpen} aria-controls="primary-navigation" onClick={() => setMobileOpen((open) => !open)}>
           {mobileOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
       </header>
