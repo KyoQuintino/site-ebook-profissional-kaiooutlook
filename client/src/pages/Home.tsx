@@ -343,7 +343,7 @@ const products: Product[] = [
     title: "Os Pré-Socráticos",
     category: "FILOSOFIA · HISTÓRIA DAS IDEIAS",
     description: "Uma edição de estudo sobre os primeiros filósofos gregos, com introdução histórica, fragmentos, doxografia e comentários — da passagem do mito à investigação racional.",
-    image: "os-pre-socraticos.webp",
+    image: "/assets/os-pre-socraticos.jpg",
     imageFit: "contain",
     href: "https://pay.kiwify.com.br/4LPCjeC",
     presentationUrl: "https://kiwify.app/PsfF1e3",
