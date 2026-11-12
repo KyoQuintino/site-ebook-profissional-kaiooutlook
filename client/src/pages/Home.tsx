@@ -5,7 +5,6 @@ import {
   ArrowUpRight,
   BookOpen,
   Check,
-  ChevronDown,
   ExternalLink,
   Menu,
   MessageCircle,
@@ -467,7 +466,6 @@ const products: Product[] = [
 
 ];
 
-const categories = Array.from(new Set(products.map((product) => product.category))).sort((a, b) => a.localeCompare(b, "pt-BR", { sensitivity: "base" }));
 const featured = [products[18], products[19], products[17]];
 
 function Cover({ product, variant = "card" }: { product: Product; variant?: "card" | "hero" | "detail" }) {
@@ -502,7 +500,6 @@ function Cover({ product, variant = "card" }: { product: Product; variant?: "car
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
-  const [filter, setFilter] = useState("Todas as categorias");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<Product | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -522,11 +519,10 @@ export default function Home() {
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return products.filter((product) => {
-      const matchesCategory = filter === "Todas as categorias" || product.category === filter;
       const matchesQuery = !normalizedQuery || `${product.title} ${product.category}`.toLowerCase().includes(normalizedQuery);
-      return matchesCategory && matchesQuery;
+      return matchesQuery;
     }).sort((a, b) => a.title.localeCompare(b.title, "pt-BR", { sensitivity: "base", numeric: true }));
-  }, [filter, query]);
+  }, [query]);
 
   const scrollToCatalog = () => {
     document.querySelector("#colecao")?.scrollIntoView({ behavior: "smooth" });
@@ -605,12 +601,10 @@ export default function Home() {
             <p>Uma coleção de leituras para alinhar o que você sente com o que quer construir. Explore por tema, encontre a que conversa com seu momento e leia no seu ritmo.</p>
           </div>
           <div className="catalog-tools">
-            <label className="select-wrap"><span>Filtrar por categoria</span><select value={filter} onChange={(event) => setFilter(event.target.value)}><option>Todas as categorias</option>{categories.map((category) => <option key={category}>{category}</option>)}</select><ChevronDown size={16} /></label>
             <label className="search-wrap"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar uma leitura" aria-label="Buscar uma leitura" /></label>
             <div className="result-count"><strong>{filtered.length}</strong> leituras para explorar</div>
           </div>
           <div className="catalog-hint"><BookOpen size={15} /><span>Comece pelo que você quer transformar hoje.</span><span className="hint-rule" /></div>
-          <div className="quick-filters"><span>Comece por:</span>{categories.slice(0, 5).map((category) => <button className={filter === category ? "active" : ""} key={category} onClick={() => setFilter(category)}>{category}</button>)}</div>
           <div className="product-grid">
             {filtered.map((product) => (
               <article className="product-card" key={product.id}>
@@ -630,7 +624,7 @@ export default function Home() {
               </article>
             ))}
           </div>
-          {filtered.length === 0 && <div className="empty-state"><BookOpen size={28} /><h3>Nenhuma leitura encontrada</h3><p>Tente outra palavra ou volte para todas as categorias.</p><button className="button button-outline" onClick={() => { setFilter("Todas as categorias"); setQuery(""); }}>Ver todos os e-books</button></div>}
+          {filtered.length === 0 && <div className="empty-state"><BookOpen size={28} /><h3>Nenhuma leitura encontrada</h3><p>Tente outra palavra ou limpe a busca para ver toda a coleção.</p><button className="button button-outline" onClick={() => setQuery("")}>Ver todos os e-books</button></div>}
         </section>
 
         <section className="detail-feature section-wrap" id="sobre">
