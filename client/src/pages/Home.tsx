@@ -720,7 +720,10 @@ export default function Home() {
 
         <style>{`
           #colecao .category-filters { position: sticky; top: 10px; z-index: 30; padding: 12px; margin: 0 -12px 10px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface, var(--white)); box-shadow: 0 8px 24px rgba(30,35,28,.08); }
+          .decision-proof { grid-template-columns: auto minmax(0,1fr) auto auto auto; }
           .decision-proof-controls { display:flex; align-items:center; gap:8px; }
+          @media (max-width:900px) { .decision-proof { grid-template-columns: auto minmax(0,1fr); } .decision-proof-controls { grid-column:2; } }
+          @media (max-width:640px) { .decision-proof { grid-template-columns:1fr; } .decision-proof-controls { grid-column:auto; } }
           .decision-proof-controls button { width:30px; height:30px; border:1px solid var(--line); border-radius:50%; background:var(--surface, var(--white)); color:var(--ink); font-size:20px; cursor:pointer; }
           .checkout-note { margin: -8px 0 18px; color: var(--ink-soft); font-size: 12px; line-height: 1.5; }
           .testimonials-section { padding: 84px 0 96px; scroll-margin-top: 28px; }
