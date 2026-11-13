@@ -205,6 +205,19 @@ const products: Product[] = [
     author: "Sun Tzu",
     bullets: ["Princípios clássicos de estratégia e planejamento", "Reflexões sobre disciplina, liderança e tomada de decisões", "Acesso digital pela página de pagamento da Hotmart"],
   },
+  {
+    id: 43,
+    title: "Você Pode Curar Sua Vida",
+    category: "AUTOCONHECIMENTO · AMOR-PRÓPRIO · TRANSFORMAÇÃO",
+    description: "Uma leitura de Louise L. Hay sobre amor-próprio, autoaceitação, afirmações positivas e transformação interior, com reflexões para levar ao cotidiano.",
+    image: "https://raw.githubusercontent.com/KyoQuintino/Voc-Pode-Curar-Sua-Vida/main/assets/hero.svg",
+    imageFit: "cover",
+    href: "https://hotm.io/jSJhPsVu",
+    actionLabel: "Comprar na Hotmart",
+    tag: "NOVA LEITURA",
+    author: "Louise L. Hay",
+    bullets: ["Reflexões sobre amor-próprio e autoaceitação", "Afirmações positivas e autoconhecimento", "Acesso e condições disponíveis na página de compra"],
+  },
 
   {
     id: 15,
