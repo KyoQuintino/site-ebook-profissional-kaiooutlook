@@ -593,7 +593,7 @@ export default function Home() {
 
   return (
     <div className="site-shell">
-      <div className="announcement">CONTEÚDO QUE CABE NA VIDA REAL <span>•</span> ACESSO DIGITAL IMEDIATO <span>•</span> COMPRA SEGURA</div>
+      <div className="announcement">CONTEÚDO QUE CABE NA VIDA REAL <span>•</span> ACESSO DIGITAL IMEDIATO <span>•</span> CHECKOUT EM PLATAFORMAS DE PAGAMENTO</div>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Digital Quintino, início">
           <span className="brand-mark">D</span>
