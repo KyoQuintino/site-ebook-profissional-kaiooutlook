@@ -525,6 +525,16 @@ function Cover({ product, variant = "card" }: { product: Product; variant?: "car
   );
 }
 
+function categoryFor(product: Product) {
+  const text = `${product.title} ${product.category}`.toLowerCase();
+  if (/bíblia|jesus|oração|orar|devocional|salmos|espiritual|fé|crist|parábol|diabo|armadura|provérbio|graça/.test(text)) return "Fé e Espiritualidade";
+  if (/detox|suco|saúde|bem-estar|hábitos naturais/.test(text)) return "Saúde e Bem-estar";
+  if (/criança|família|casamento|relacionamento|amigos|comunicação/.test(text)) return "Família e Relacionamentos";
+  if (/liderança|negócio|guerra cultural|arte da guerra|estratégia|trabalho|gestão/.test(text)) return "Negócios e Liderança";
+  return "Desenvolvimento Pessoal";
+}
+const categoryOptions = ["Todos", "Fé e Espiritualidade", "Desenvolvimento Pessoal", "Saúde e Bem-estar", "Família e Relacionamentos", "Negócios e Liderança"];
+
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
   const [query, setQuery] = useState("");
@@ -551,16 +561,6 @@ export default function Home() {
     if (twitterImage) twitterImage.content = shareImage;
   }, []);
 
-  const categoryFor = (product: Product) => {
-    const text = `${product.title} ${product.category}`.toLowerCase();
-    if (/bíblia|jesus|oração|orar|devocional|salmos|espiritual|fé|crist|parábol|diabo|armadura|provérbio|graça/.test(text)) return "Fé e Espiritualidade";
-    if (/detox|suco|saúde|bem-estar|hábitos naturais/.test(text)) return "Saúde e Bem-estar";
-    if (/criança|família|casamento|relacionamento|amigos|comunicação/.test(text)) return "Família e Relacionamentos";
-    if (/liderança|negócio|guerra cultural|arte da guerra|estratégia|trabalho|gestão/.test(text)) return "Negócios e Liderança";
-    if (/filosofia|pré-socr|mente|mindset|pnl|aprendizado|psicologia|autoconhecimento|propósito|motivação|desenvolvimento|metanoia|recomeçar|hábito|sucesso/.test(text)) return "Desenvolvimento Pessoal";
-    return "Desenvolvimento Pessoal";
-  };
-  const categoryOptions = ["Todos", "Fé e Espiritualidade", "Desenvolvimento Pessoal", "Saúde e Bem-estar", "Família e Relacionamentos", "Negócios e Liderança"];
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return products.filter((product) => {
