@@ -193,6 +193,20 @@ const products: Product[] = [
     bullets: ["Receitas com frutas e hortaliças", "Ingredientes, quantidades e modos de preparo", "Acesso digital pela página de pagamento da Hotmart"],
   },
   {
+    id: 42,
+    title: "A Arte da Guerra — Sun Tzu",
+    category: "FILOSOFIA · ESTRATÉGIA · LIDERANÇA",
+    description: "Um clássico da estratégia que reúne reflexões sobre planejamento, disciplina, conhecimento e tomada de decisões em cenários de conflito e na vida.",
+    image: "/assets/sun-tzu-cover.webp",
+    imageFit: "contain",
+    href: "https://go.hotmart.com/G108487499O",
+    actionLabel: "Comprar na Hotmart",
+    tag: "NOVA LEITURA",
+    author: "Sun Tzu",
+    bullets: ["Princípios clássicos de estratégia e planejamento", "Reflexões sobre disciplina, liderança e tomada de decisões", "Acesso digital pela página de pagamento da Hotmart"],
+  },
+
+  {
     id: 15,
     title: "Guerra Cultural",
     category: "FÉ, CULTURA E PENSAMENTO",
