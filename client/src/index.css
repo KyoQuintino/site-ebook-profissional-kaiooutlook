@@ -498,3 +498,31 @@ button:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px
   .product-info p { font-size: 8px; }
   .details-link { font-size: 6px; }
 }
+
+/* Conversão: separar consulta de detalhes da ação comercial principal. */
+.product-footer { align-items: center; gap: 8px; }
+.product-footer .details-link { flex: 0 1 auto; cursor: pointer; white-space: nowrap; }
+.product-footer .buy-link {
+  min-height: 34px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 10px;
+  border: 1px solid var(--terracotta);
+  border-radius: 999px;
+  background: var(--terracotta);
+  color: #fffaf4;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+.product-footer .buy-link:hover { filter: brightness(.94); transform: translateY(-1px); }
+@media (max-width: 640px) {
+  .product-footer { align-items: stretch; flex-direction: column; gap: 7px; }
+  .product-footer .details-link { align-self: flex-start; font-size: clamp(7px, 2vw, 9px); }
+  .product-footer .buy-link { width: 100%; min-height: 29px; padding: 0 3px; font-size: clamp(6px, 1.8vw, 8px); }
+  .product-footer .buy-link svg { width: 9px; height: 9px; }
+}
