@@ -591,7 +591,7 @@ export default function Home() {
               <button className="button button-dark" onClick={scrollToCatalog}>Explorar a coleção <ArrowDown size={16} /></button>
               <a className="text-link" href={whatsappFor()} target="_blank" rel="noopener noreferrer">Tirar uma dúvida <ArrowUpRight size={16} /></a>
             </div>
-            <div className="hero-proof"><div className="proof-avatars"><span>J</span><span>M</span><span>A</span><b>+</b></div><span>E-books digitais para diferentes momentos da vida</span></div>
+            <div className="hero-proof"><span>E-books digitais para diferentes momentos da vida</span></div>
           </div>
           <div className="hero-art" aria-label="Capas selecionadas da coleção">
             <div className="hero-caption caption-left">feito<br />para você</div>
