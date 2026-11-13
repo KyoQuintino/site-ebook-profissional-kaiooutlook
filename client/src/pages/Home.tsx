@@ -528,6 +528,7 @@ function Cover({ product, variant = "card" }: { product: Product; variant?: "car
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
   const [query, setQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [selected, setSelected] = useState<Product | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -550,13 +551,24 @@ export default function Home() {
     if (twitterImage) twitterImage.content = shareImage;
   }, []);
 
+  const categoryFor = (product: Product) => {
+    const text = `${product.title} ${product.category}`.toLowerCase();
+    if (/bíblia|jesus|oração|orar|devocional|salmos|espiritual|fé|crist|parábol|diabo|armadura|provérbio|graça/.test(text)) return "Fé e Espiritualidade";
+    if (/detox|suco|saúde|bem-estar|hábitos naturais/.test(text)) return "Saúde e Bem-estar";
+    if (/criança|família|casamento|relacionamento|amigos|comunicação/.test(text)) return "Família e Relacionamentos";
+    if (/liderança|negócio|guerra cultural|arte da guerra|estratégia|trabalho|gestão/.test(text)) return "Negócios e Liderança";
+    if (/filosofia|pré-socr|mente|mindset|pnl|aprendizado|psicologia|autoconhecimento|propósito|motivação|desenvolvimento|metanoia|recomeçar|hábito|sucesso/.test(text)) return "Desenvolvimento Pessoal";
+    return "Desenvolvimento Pessoal";
+  };
+  const categoryOptions = ["Todos", "Fé e Espiritualidade", "Desenvolvimento Pessoal", "Saúde e Bem-estar", "Família e Relacionamentos", "Negócios e Liderança"];
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return products.filter((product) => {
       const matchesQuery = !normalizedQuery || `${product.title} ${product.category}`.toLowerCase().includes(normalizedQuery);
-      return matchesQuery;
+      const matchesCategory = selectedCategory === "Todos" || categoryFor(product) === selectedCategory;
+      return matchesQuery && matchesCategory;
     }).sort((a, b) => a.title.localeCompare(b.title, "pt-BR", { sensitivity: "base", numeric: true }));
-  }, [query]);
+  }, [query, selectedCategory]);
 
   const scrollToCatalog = () => {
     document.querySelector("#colecao")?.scrollIntoView({ behavior: "smooth" });
@@ -638,6 +650,11 @@ export default function Home() {
             <label className="search-wrap"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar uma leitura" aria-label="Buscar uma leitura" /></label>
             <div className="result-count"><strong>{filtered.length}</strong> leituras para explorar</div>
           </div>
+          <div className="category-filters" role="group" aria-label="Filtrar catálogo por categoria">
+            {categoryOptions.map((category) => (
+              <button key={category} type="button" className={`category-filter ${selectedCategory === category ? "is-active" : ""}`} aria-pressed={selectedCategory === category} onClick={() => setSelectedCategory(category)}>{category}</button>
+            ))}
+          </div>
           <div className="catalog-hint"><BookOpen size={15} /><span>Comece pelo que você quer transformar hoje.</span><span className="hint-rule" /></div>
           <div className="product-grid">
             {filtered.map((product) => (
@@ -658,7 +675,7 @@ export default function Home() {
               </article>
             ))}
           </div>
-          {filtered.length === 0 && <div className="empty-state"><BookOpen size={28} /><h3>Nenhuma leitura encontrada</h3><p>Tente outra palavra ou limpe a busca para ver toda a coleção.</p><button className="button button-outline" onClick={() => setQuery("")}>Ver todos os e-books</button></div>}
+          {filtered.length === 0 && <div className="empty-state"><BookOpen size={28} /><h3>Nenhuma leitura encontrada</h3><p>Tente outra palavra ou limpe a busca para ver toda a coleção.</p><button className="button button-outline" onClick={() => { setQuery(""); setSelectedCategory("Todos"); }}>Ver todos os e-books</button></div>}
         </section>
 
         <section className="detail-feature section-wrap" id="sobre">
