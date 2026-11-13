@@ -466,7 +466,7 @@ const products: Product[] = [
     title: "Armadura de Deus",
     category: "FÉ · PROTEÇÃO ESPIRITUAL",
     description: "Um convite à reflexão sobre a armadura espiritual e os princípios bíblicos para fortalecer a fé no dia a dia.",
-    image: "",
+    image: "armadura-de-deus-8k-3x4(1).jpg",
     href: "https://go.hotmart.com/H107959010L",
     actionLabel: "Conhecer o e-book",
     tag: "NOVA LEITURA",
@@ -489,7 +489,8 @@ const products: Product[] = [
 
 ];
 
-const featured = [products[18], products[19], products[17]];
+const featured = [products.find((product) => product.id === 40)!, products[18], products[19]];
+const featuredOffer = products.find((product) => product.id === 40)!;
 
 function Cover({ product, variant = "card" }: { product: Product; variant?: "card" | "hero" | "detail" }) {
   const imageSrc = product.image
@@ -590,7 +591,7 @@ export default function Home() {
               <button className="button button-dark" onClick={scrollToCatalog}>Explorar a coleção <ArrowDown size={16} /></button>
               <a className="text-link" href={whatsappFor()} target="_blank" rel="noopener noreferrer">Tirar uma dúvida <ArrowUpRight size={16} /></a>
             </div>
-            <div className="hero-proof"><div className="proof-avatars"><span>J</span><span>M</span><span>A</span><b>+</b></div><span>Leituras escolhidas por famílias reais</span></div>
+            <div className="hero-proof"><div className="proof-avatars"><span>J</span><span>M</span><span>A</span><b>+</b></div><span>E-books digitais para diferentes momentos da vida</span></div>
           </div>
           <div className="hero-art" aria-label="Capas selecionadas da coleção">
             <div className="hero-caption caption-left">feito<br />para você</div>
@@ -604,8 +605,8 @@ export default function Home() {
 
         <section className="curation section-wrap" id="curadoria">
           <div className="section-heading section-heading-wide">
-            <div><div className="eyebrow">CURADORIA DA SEMANA</div><h2>Os mais <i>populares.</i></h2></div>
-            <p>Comece pelas leituras que mais despertam interesse na coleção — escolhidas para diferentes momentos da vida.</p>
+            <div><div className="eyebrow">CURADORIA DIGITALQUINTINO</div><h2>Destaques da <i>coleção.</i></h2></div>
+            <p>Conheça uma seleção de leituras sobre fé, desenvolvimento pessoal e bem-estar. Abra os detalhes e escolha a que faz sentido para você.</p>
           </div>
           <div className="featured-grid">
             {featured.map((product, index) => (
@@ -651,11 +652,11 @@ export default function Home() {
         </section>
 
         <section className="detail-feature section-wrap" id="sobre">
-          <div className="detail-image"><div className="detail-stamp">NOVO<br />NA COLEÇÃO</div><Cover product={products[0]} variant="detail" /><span className="detail-shadow" /></div>
-          <div className="detail-copy"><div className="eyebrow">RESPONSABILIDADE PESSOAL</div><h2>Vá cuidar da<br /><i>sua vida.</i></h2><p className="detail-lede">A frase que parece um corte. Mas pode ser o começo da sua liberdade.</p><p>Um convite para sair do ruído e assumir o comando da própria história.</p><ul className="benefit-list">{products[0].bullets.map((bullet) => <li key={bullet}><Check size={15} />{bullet}</li>)}</ul><div className="detail-meta"><div><span>Autor</span><strong>{products[0].author}</strong></div><div><span>Formato</span><strong>E-book digital</strong></div><div><span>Acesso</span><strong>Imediato</strong></div></div><div className="detail-actions"><a className="button button-accent" href={products[0].href} target="_blank" rel="noopener noreferrer">Quero este e-book <ArrowUpRight size={16} /></a><a className="text-link" href={whatsappFor(products[0].title)} target="_blank" rel="noopener noreferrer"><MessageCircle size={16} /> Tirar uma dúvida</a></div></div>
+          <div className="detail-image"><div className="detail-stamp">DESTAQUE<br />DA COLEÇÃO</div><Cover product={featuredOffer} variant="detail" /><span className="detail-shadow" /></div>
+          <div className="detail-copy"><div className="eyebrow">{featuredOffer.category}</div><h2>{featuredOffer.title}</h2><p className="detail-lede">Vista-se da força e da proteção do Senhor.</p><p>{featuredOffer.description}</p><ul className="benefit-list">{featuredOffer.bullets.map((bullet) => <li key={bullet}><Check size={15} />{bullet}</li>)}</ul><div className="detail-meta"><div><span>Formato</span><strong>E-book digital</strong></div><div><span>Tema</span><strong>Fé e proteção espiritual</strong></div><div><span>Acesso</span><strong>Consulte no checkout</strong></div></div><div className="detail-actions"><a className="button button-accent" href={featuredOffer.href} target="_blank" rel="noopener noreferrer">Conhecer o e-book <ArrowUpRight size={16} /></a><a className="text-link" href={whatsappFor(featuredOffer.title)} target="_blank" rel="noopener noreferrer"><MessageCircle size={16} /> Tirar uma dúvida</a></div></div>
         </section>
 
-        <section className="chapters section-wrap"><div className="chapters-intro"><div className="eyebrow">O QUE VOCÊ LEVA</div><h2>Uma leitura que<br /><i>puxa para a vida.</i></h2></div><div className="chapters-list"><div className="chapters-label">Capítulos</div>{["Onde tudo começou", "O seu maior inimigo", "A prosperidade é natural", "Bloqueios emocionais", "Seja o seu próprio coach", "A arte de ser ridículo", "Vá para a guerra!", "Máscara social", "O leme do navio", "O que fazer agora?"].map((chapter, index) => <div className="chapter-row" key={chapter}><span>{String(index + 1).padStart(2, "0")}</span><strong>{chapter}</strong><ArrowUpRight size={15} /></div>)}</div></section>
+
 
         <section className="closing-cta section-wrap"><div className="closing-mark">D</div><div><div className="eyebrow">LEITURA COM PROPÓSITO</div><h2>Tem uma pergunta?<br /><i>Fale com a gente.</i></h2></div><a className="button button-light" href={whatsappFor()} target="_blank" rel="noopener noreferrer">Chamar no WhatsApp <MessageCircle size={16} /></a></section>
       </main>
