@@ -530,7 +530,7 @@ button:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px
 
 /* Refinamento de acessibilidade e conversão — DigitalQuintino */
 .category-filters { display:flex; flex-wrap:wrap; gap:9px; padding:18px 0 8px; }
-.category-filter { min-height:40px; padding:9px 15px; border:1px solid var(--line); border-radius:999px; background:transparent; color:var(--ink); font:600 13px/1.2 inherit; cursor:pointer; }
+.category-filter { min-height:40px; padding:9px 15px; border:1px solid var(--line); border-radius:999px; background:transparent; color:var(--ink); font-family:inherit; font-size:13px; font-weight:600; line-height:1.2; cursor:pointer; }
 .category-filter:hover,.category-filter.is-active { border-color:var(--terracotta); background:var(--terracotta); color:#fffaf4; }
 .category-filter:focus-visible,.buy-link:focus-visible { outline:3px solid var(--terracotta); outline-offset:3px; }
 .product-footer .buy-link { min-height:46px; padding:0 14px; font-size:13px; }
