@@ -493,6 +493,8 @@ const featured = [products.find((product) => product.id === 40)!, products[18], 
 const featuredOffer = products.find((product) => product.id === 40)!;
 
 function Cover({ product, variant = "card" }: { product: Product; variant?: "card" | "hero" | "detail" }) {
+  const [imageFailed, setImageFailed] = useState(false);
+  useEffect(() => setImageFailed(false), [product.image]);
   const imageSrc = product.image
     ? product.image.startsWith("http")
       ? product.image
@@ -502,13 +504,14 @@ function Cover({ product, variant = "card" }: { product: Product; variant?: "car
     : "";
   return (
     <div className={`cover cover-${variant}${product.imageFit === "contain" ? " cover-image-contain" : ""}${product.imageAspectRatio === "landscape" ? " cover-image-landscape" : ""}`}>
-      {product.image ? (
+      {product.image && !imageFailed ? (
         <img
           className="cover-art"
           src={imageSrc}
           alt={`Capa do e-book ${product.title}`}
           loading={variant === "hero" ? "eager" : "lazy"}
           decoding="async"
+          onError={() => setImageFailed(true)}
         />
       ) : (
         <div className="cover-placeholder" role="img" aria-label={`Capa provisória de ${product.title}`}>
@@ -538,6 +541,13 @@ export default function Home() {
     if (ogTitle) ogTitle.content = document.title;
     const ogDescription = document.querySelector<HTMLMetaElement>('meta[property="og:description"]');
     if (ogDescription && description) ogDescription.content = description.content;
+    const shareImage = new URL("/assets/armadura-de-deus-8k-3x4(1).jpg", window.location.origin).href;
+    const ogImage = document.querySelector<HTMLMetaElement>('meta[property="og:image"]');
+    if (ogImage) ogImage.content = shareImage;
+    const twitterTitle = document.querySelector<HTMLMetaElement>('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.content = document.title;
+    const twitterImage = document.querySelector<HTMLMetaElement>('meta[name="twitter:image"]');
+    if (twitterImage) twitterImage.content = shareImage;
   }, []);
 
   const filtered = useMemo(() => {
