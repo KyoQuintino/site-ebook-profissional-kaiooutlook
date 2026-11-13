@@ -556,3 +556,40 @@ button:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px
   .product-info h3 { font-size:15px; }
   .product-info p { font-size:12px; }
 }
+
+
+/* Melhorias UX/CRO: busca instantânea, segurança, hierarquia e contraste. */
+.hero-microcopy { display:flex; align-items:center; flex-wrap:wrap; gap:7px; margin:16px 0 0; color:var(--ink-soft); font-size:12px; font-weight:600; }
+.hero-microcopy svg { color:var(--terracotta); flex:0 0 auto; }
+.hero-microcopy span { color:var(--terracotta); }
+.search-suggest-wrap { position:relative; min-width:0; z-index:5; }
+.search-suggestions { position:absolute; top:calc(100% + 8px); left:0; right:0; z-index:20; overflow:hidden; border:1px solid var(--line); border-radius:12px; background:var(--white); box-shadow:0 14px 34px #111a1624; }
+.search-suggestions button { width:100%; display:flex; flex-direction:column; align-items:flex-start; gap:3px; padding:12px 16px; background:transparent; color:var(--ink); text-align:left; border-bottom:1px solid var(--line); }
+.search-suggestions button:last-child { border-bottom:0; }
+.search-suggestions button:hover,.search-suggestions button:focus-visible { background:var(--paper-deep); }
+.search-suggestions small { color:var(--ink-soft); font-size:11px; }
+.decision-proof { display:grid; grid-template-columns:auto 1fr auto auto; align-items:center; gap:14px; margin-top:-34px; margin-bottom:70px; padding:18px 22px; border:1px solid var(--line); border-radius:12px; background:var(--white); }
+.decision-proof-stars { color:var(--terracotta); letter-spacing:.12em; white-space:nowrap; }
+.decision-proof p { margin:0; color:var(--ink); font:italic 15px/1.45 var(--serif); }
+.decision-proof span { color:var(--ink-soft); font-size:11px; white-space:nowrap; }
+.decision-proof a { display:inline-flex; align-items:center; gap:4px; color:var(--terracotta); font-size:11px; font-weight:700; white-space:nowrap; }
+.modal-trust { display:flex; flex-wrap:wrap; gap:10px 18px; margin:18px 0 22px; color:var(--ink-soft); font-size:12px; }
+.modal-trust span { display:inline-flex; align-items:center; gap:6px; }
+.modal-trust svg { color:var(--terracotta); }
+.product-modal { color:var(--ink); }
+.product-modal p,.product-modal .benefit-list { color:var(--ink-soft); }
+.product-footer .buy-link { min-height:44px; padding:0 13px; border:1px solid var(--terracotta); border-radius:999px; background:var(--terracotta); color:#fff; font-size:12px; font-weight:700; cursor:pointer; }
+.product-footer .buy-link:hover { filter:brightness(.93); transform:translateY(-1px); }
+.category-filter { color:var(--ink); }
+.hero-text,.catalog-intro > p,.product-info p,.testimonial-role,.footer-note { color:var(--ink-soft); }
+@media (max-width:900px) {
+  .decision-proof { grid-template-columns:auto 1fr; margin-top:-20px; }
+  .decision-proof span,.decision-proof a { grid-column:2; }
+}
+@media (max-width:640px) {
+  .hero-microcopy { font-size:11px; line-height:1.5; }
+  .decision-proof { grid-template-columns:1fr; gap:7px; margin:0 auto 48px; padding:17px; }
+  .decision-proof span,.decision-proof a { grid-column:auto; }
+  .decision-proof p { font-size:14px; }
+  .search-suggestions { max-height:260px; overflow:auto; }
+}
