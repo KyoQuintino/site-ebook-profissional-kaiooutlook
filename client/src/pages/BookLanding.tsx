@@ -12,6 +12,7 @@ type LandingData = {
   description: string;
   image: string;
   checkout: string;
+  checkoutProvider: "Hotmart" | "Kiwify";
   introTitle: string;
   intro: string;
   benefits: { title: string; text: string }[];
@@ -29,6 +30,7 @@ const landings: LandingData[] = [
     description: "Um guia direto e atemporal para conversar com mais presença, criar vínculos verdadeiros e influenciar pessoas com respeito.",
     image: "/assets/como-fazer-amigos-e-influenciar-pessoas-lite.webp",
     checkout: "https://pay.kiwify.com.br/MQpLgSg",
+    checkoutProvider: "Kiwify",
     introTitle: "Você não precisa falar mais alto. Precisa fazer mais sentido.",
     intro: "Existe uma diferença enorme entre estar em uma conversa e realmente estar presente nela. Esta leitura reúne princípios simples para observar melhor as pessoas, escolher melhor as palavras e construir relações mais conscientes.",
     benefits: [
@@ -52,6 +54,7 @@ const landings: LandingData[] = [
     description: "Uma metodologia para observar a rotina por três esferas: o urgente, o importante e o circunstancial.",
     image: "/assets/triade-do-tempo-cover-lite.webp",
     checkout: "https://pay.kiwify.com.br/geaafqF",
+    checkoutProvider: "Kiwify",
     introTitle: "Nem tudo que ocupa o dia tem o mesmo peso.",
     intro: "Gerenciar o tempo começa por perceber onde suas escolhas estão levando você. A metodologia propõe identificar a natureza das atividades que consomem seu tempo e organizar a rotina de acordo com aquilo que realmente importa.",
     benefits: [
@@ -74,7 +77,8 @@ const landings: LandingData[] = [
     author: "Digital Quintino",
     description: "Um guia introdutório sobre Programação Neurolinguística, com conceitos e exercícios de reflexão para observar padrões de pensamento, comunicação e comportamento.",
     image: "/assets/pnl-segredo.jpg",
-    checkout: "https://pnlsegredo-6ghqgqri.manus.space/",
+    checkout: "https://go.hotmart.com/M108123748P",
+    checkoutProvider: "Hotmart",
     introTitle: "Pequenas mudanças na forma de pensar podem abrir novas perspectivas.",
     intro: "A Programação Neurolinguística (PNL) reúne modelos e técnicas de comunicação e desenvolvimento pessoal. Este material apresenta a proposta de forma acessível, convidando você a observar hábitos, linguagem, objetivos e respostas do dia a dia. Use as ideias como ferramentas de reflexão — sem promessas de resultados garantidos.",
     benefits: [
@@ -103,6 +107,7 @@ const landings: LandingData[] = [
     description: "Um e-book para quem quer colocar mais ingredientes naturais no dia a dia, sem complicar a cozinha.",
     image: "/assets/101-sucos-detox-cover-lite.webp",
     checkout: "https://kiwify.app/iSGsfag",
+    checkoutProvider: "Kiwify",
     introTitle: "Quando a receita certa está à mão, cuidar da rotina fica mais fácil.",
     intro: "O 101 Sucos Detox reúne ideias para experimentar combinações com frutas, folhas, legumes, sementes e ingredientes frescos. É um material de consulta rápida, feito para acompanhar a vida real.",
     benefits: [
@@ -136,6 +141,8 @@ export default function BookLanding() {
     if (ogDescription) ogDescription.content = data.description;
   }, [data]);
 
+  const whatsappUrl = `https://wa.me/5527995126041?text=${encodeURIComponent(`Olá! Vim pela DigitalQuintino e gostaria de tirar uma dúvida sobre o e-book ${data.title}.`)}`;
+
   return (
     <main className="book-landing">
       <div className="book-topline">DIGITALQUINTINO <span>•</span> LEITURAS PARA VIVER MELHOR</div>
@@ -151,8 +158,8 @@ export default function BookLanding() {
             <h1>{data.title}<br /><i>{data.accent}</i></h1>
             <p className="book-lede">{data.description}</p>
             <p className="book-author">Uma leitura de <strong>{data.author}</strong></p>
-            <div className="book-actions"><a className="button button-accent" href={data.checkout} target="_blank" rel="noreferrer">Quero acessar o e-book <ArrowRight size={16} /></a><a className="book-text-link" href="#proposta">Conhecer a proposta <ArrowDown size={15} /></a></div>
-            <p className="book-secure"><ShieldCheck size={15} /> Checkout seguro pela Kiwify</p>
+            <div className="book-actions"><a className="button button-accent" href={data.checkout} target="_blank" rel="noopener noreferrer">Quero acessar o e-book <ArrowRight size={16} /></a><a className="book-text-link" href="#proposta">Conhecer a proposta <ArrowDown size={15} /></a></div>
+            <p className="book-secure"><ShieldCheck size={15} /> Checkout seguro pela {data.checkoutProvider}</p>
           </div>
           <div className="book-visual"><div className="book-glow" /><div className={`book-cover${data.path === "/pnl-segredo" ? " book-cover-pnl" : ""}`}><img src={data.image} alt={`Capa do e-book ${data.title} ${data.accent}`} /></div><span className="book-note book-note-top">LEITURA<br /><strong>APLICADA</strong></span><span className="book-note book-note-bottom">E-BOOK<br /><strong>DIGITAL</strong></span></div>
         </div>
@@ -161,10 +168,11 @@ export default function BookLanding() {
       <section className="book-intro section-wrap" id="proposta"><span className="book-number">01 <small>O ponto de partida</small></span><div><h2>{data.introTitle}</h2><p>{data.intro}</p></div></section>
       <section className="book-benefits"><div className="section-wrap"><p className="book-eyebrow"><Sparkles size={14} /> O que você encontra</p><h2>Ideias para levar <i>para a vida real.</i></h2><div className="book-benefit-grid">{data.benefits.map((benefit, index) => <article key={benefit.title}><span>0{index + 1}</span><h3>{benefit.title}</h3><p>{benefit.text}</p></article>)}</div></div></section>
       <section className="book-content section-wrap"><div><p className="book-eyebrow">DENTRO DO MATERIAL</p><h2>Um conteúdo para consultar no seu ritmo.</h2><p>Conheça os principais pontos desta leitura e descubra como ela pode conversar com a sua rotina.</p></div><ul>{data.bullets.map((bullet) => <li key={bullet}><Check size={15} /> {bullet}</li>)}</ul></section>
-      <section className="book-offer"><div className="section-wrap book-offer-grid"><div><p className="book-eyebrow">SUA PRÓXIMA LEITURA</p><h2>Comece pela escolha que faz sentido para você.</h2><p>Tenha acesso ao material digital e volte a ele sempre que precisar.</p></div><div className="book-checkout"><img className={data.path === "/pnl-segredo" ? "book-checkout-cover-pnl" : ""} src={data.image} alt={`Capa de ${data.title}`} /><div><strong>{data.title}</strong><small>{data.author} · e-book digital</small><a className="button button-accent" href={data.checkout} target="_blank" rel="noreferrer">Continuar para o pagamento <ExternalLink size={14} /></a><span><ShieldCheck size={13} /> Compra segura pela Kiwify</span></div></div></div></section>
+      <section className="book-offer"><div className="section-wrap book-offer-grid"><div><p className="book-eyebrow">SUA PRÓXIMA LEITURA</p><h2>Comece pela escolha que faz sentido para você.</h2><p>Tenha acesso ao material digital e volte a ele sempre que precisar.</p></div><div className="book-checkout"><img className={data.path === "/pnl-segredo" ? "book-checkout-cover-pnl" : ""} src={data.image} alt={`Capa de ${data.title}`} /><div><strong>{data.title}</strong><small>{data.author} · e-book digital</small><a className="button button-accent" href={data.checkout} target="_blank" rel="noopener noreferrer">Continuar para o pagamento <ExternalLink size={14} /></a><span><ShieldCheck size={13} /> Compra segura pela {data.checkoutProvider}</span></div></div></div></section>
       <section className="book-faq section-wrap"><div><p className="book-eyebrow">ANTES DE COMEÇAR</p><h2>Ficou com alguma dúvida?</h2></div><div>{data.faq.map((item) => <details key={item.question}><summary>{item.question}<ChevronDown size={16} /></summary><p>{item.answer}</p></details>)}</div></section>
       <footer className="book-footer"><div className="section-wrap"><Link href="/" className="book-brand"><span className="book-brand-mark">D</span><span>Digital<span>Quintino</span></span></Link><p>Conteúdo digital para desenvolver novas possibilidades.</p></div></footer>
-      <a className="book-mobile-cta" href={data.checkout} target="_blank" rel="noreferrer">Quero acessar o e-book <ArrowRight size={15} /></a>
+      <a className="book-mobile-cta" href={data.checkout} target="_blank" rel="noopener noreferrer">Quero acessar o e-book <ArrowRight size={15} /></a>
+      <a className="book-whatsapp-float" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label={`Tirar dúvidas sobre ${data.title} pelo WhatsApp`} title="Tirar dúvidas pelo WhatsApp">Falar no WhatsApp</a>
     </main>
   );
 }

@@ -564,7 +564,7 @@ export default function Home() {
           <a href="#colecao" onClick={() => setMobileOpen(false)}>Coleção</a>
           <a href="#curadoria" onClick={() => setMobileOpen(false)}>Curadoria</a>
           <a href="#sobre" onClick={() => setMobileOpen(false)}>Sobre</a>
-          <a className="nav-cta" href={whatsappFor()} target="_blank" rel="noreferrer">Falar com a gente <ArrowUpRight size={15} /></a>
+          <a className="nav-cta" href={whatsappFor()} target="_blank" rel="noopener noreferrer">Falar com a gente <ArrowUpRight size={15} /></a>
         </nav>
         <button
           className="theme-toggle"
@@ -588,7 +588,7 @@ export default function Home() {
             <p className="hero-text">Escolha uma leitura para cuidar da sua fé, da sua família ou do seu bem-estar. E-books práticos, profundos e feitos para acompanhar você.</p>
             <div className="hero-actions">
               <button className="button button-dark" onClick={scrollToCatalog}>Explorar a coleção <ArrowDown size={16} /></button>
-              <a className="text-link" href={whatsappFor()} target="_blank" rel="noreferrer">Tirar uma dúvida <ArrowUpRight size={16} /></a>
+              <a className="text-link" href={whatsappFor()} target="_blank" rel="noopener noreferrer">Tirar uma dúvida <ArrowUpRight size={16} /></a>
             </div>
             <div className="hero-proof"><div className="proof-avatars"><span>J</span><span>M</span><span>A</span><b>+</b></div><span>Leituras escolhidas por famílias reais</span></div>
           </div>
@@ -638,8 +638,8 @@ export default function Home() {
                   <h3>{product.title}</h3>
                   <p>{product.description}</p>
                   <div className="product-footer">
-                    <a className="details-link" href={product.href} target="_blank" rel="noreferrer" aria-label={`Conhecer o e-book ${product.title}`}>Conhecer o e-book <ArrowUpRight size={15} /></a>
-                    <a href={product.href} target="_blank" rel="noreferrer" aria-label={product.actionLabel ? `${product.actionLabel}: ${product.title}` : `Comprar ${product.title}`}>
+                    <a className="details-link" href={product.href} target="_blank" rel="noopener noreferrer" aria-label={`Conhecer o e-book ${product.title}`}>Conhecer o e-book <ArrowUpRight size={15} /></a>
+                    <a href={product.href} target="_blank" rel="noopener noreferrer" aria-label={product.actionLabel ? `${product.actionLabel}: ${product.title}` : `Comprar ${product.title}`}>
                       <ArrowUpRight size={17} />
                     </a>
                   </div>
@@ -652,15 +652,15 @@ export default function Home() {
 
         <section className="detail-feature section-wrap" id="sobre">
           <div className="detail-image"><div className="detail-stamp">NOVO<br />NA COLEÇÃO</div><Cover product={products[0]} variant="detail" /><span className="detail-shadow" /></div>
-          <div className="detail-copy"><div className="eyebrow">RESPONSABILIDADE PESSOAL</div><h2>Vá cuidar da<br /><i>sua vida.</i></h2><p className="detail-lede">A frase que parece um corte. Mas pode ser o começo da sua liberdade.</p><p>Um convite para sair do ruído e assumir o comando da própria história.</p><ul className="benefit-list">{products[0].bullets.map((bullet) => <li key={bullet}><Check size={15} />{bullet}</li>)}</ul><div className="detail-meta"><div><span>Autor</span><strong>{products[0].author}</strong></div><div><span>Formato</span><strong>E-book digital</strong></div><div><span>Acesso</span><strong>Imediato</strong></div></div><div className="detail-actions"><a className="button button-accent" href={products[0].href} target="_blank" rel="noreferrer">Quero este e-book <ArrowUpRight size={16} /></a><a className="text-link" href={whatsappFor(products[0].title)} target="_blank" rel="noreferrer"><MessageCircle size={16} /> Tirar uma dúvida</a></div></div>
+          <div className="detail-copy"><div className="eyebrow">RESPONSABILIDADE PESSOAL</div><h2>Vá cuidar da<br /><i>sua vida.</i></h2><p className="detail-lede">A frase que parece um corte. Mas pode ser o começo da sua liberdade.</p><p>Um convite para sair do ruído e assumir o comando da própria história.</p><ul className="benefit-list">{products[0].bullets.map((bullet) => <li key={bullet}><Check size={15} />{bullet}</li>)}</ul><div className="detail-meta"><div><span>Autor</span><strong>{products[0].author}</strong></div><div><span>Formato</span><strong>E-book digital</strong></div><div><span>Acesso</span><strong>Imediato</strong></div></div><div className="detail-actions"><a className="button button-accent" href={products[0].href} target="_blank" rel="noopener noreferrer">Quero este e-book <ArrowUpRight size={16} /></a><a className="text-link" href={whatsappFor(products[0].title)} target="_blank" rel="noopener noreferrer"><MessageCircle size={16} /> Tirar uma dúvida</a></div></div>
         </section>
 
         <section className="chapters section-wrap"><div className="chapters-intro"><div className="eyebrow">O QUE VOCÊ LEVA</div><h2>Uma leitura que<br /><i>puxa para a vida.</i></h2></div><div className="chapters-list"><div className="chapters-label">Capítulos</div>{["Onde tudo começou", "O seu maior inimigo", "A prosperidade é natural", "Bloqueios emocionais", "Seja o seu próprio coach", "A arte de ser ridículo", "Vá para a guerra!", "Máscara social", "O leme do navio", "O que fazer agora?"].map((chapter, index) => <div className="chapter-row" key={chapter}><span>{String(index + 1).padStart(2, "0")}</span><strong>{chapter}</strong><ArrowUpRight size={15} /></div>)}</div></section>
 
-        <section className="closing-cta section-wrap"><div className="closing-mark">D</div><div><div className="eyebrow">LEITURA COM PROPÓSITO</div><h2>Tem uma pergunta?<br /><i>Fale com a gente.</i></h2></div><a className="button button-light" href={whatsappFor()} target="_blank" rel="noreferrer">Chamar no WhatsApp <MessageCircle size={16} /></a></section>
+        <section className="closing-cta section-wrap"><div className="closing-mark">D</div><div><div className="eyebrow">LEITURA COM PROPÓSITO</div><h2>Tem uma pergunta?<br /><i>Fale com a gente.</i></h2></div><a className="button button-light" href={whatsappFor()} target="_blank" rel="noopener noreferrer">Chamar no WhatsApp <MessageCircle size={16} /></a></section>
       </main>
 
-      <footer className="site-footer section-wrap"><div className="footer-brand"><span className="brand-mark">D</span><div><strong>Digital <em>Quintino</em></strong><span>Leituras para viver melhor.</span></div></div><div className="footer-links"><a href="#colecao">Coleção</a><a href="#curadoria">Curadoria</a><a href={whatsappFor()} target="_blank" rel="noreferrer">WhatsApp</a></div><span className="footer-note">© 2026 DigitalQuintino</span></footer>
+      <footer className="site-footer section-wrap"><div className="footer-brand"><span className="brand-mark">D</span><div><strong>Digital <em>Quintino</em></strong><span>Leituras para viver melhor.</span></div></div><div className="footer-links"><a href="#colecao">Coleção</a><a href="#curadoria">Curadoria</a><a href={whatsappFor()} target="_blank" rel="noopener noreferrer">WhatsApp</a></div><span className="footer-note">© 2026 DigitalQuintino</span></footer>
 
       {selected && (
         <div className="modal-backdrop" role="presentation" onClick={() => setSelected(null)}>
@@ -675,15 +675,15 @@ export default function Home() {
                 {selected.bullets.map((bullet) => <li key={bullet}><Check size={15} />{bullet}</li>)}
               </ul>
               <div className="modal-actions">
-                <a className="button button-accent" href={selected.href} target="_blank" rel="noreferrer">
+                <a className="button button-accent" href={selected.href} target="_blank" rel="noopener noreferrer">
                   {selected.actionLabel ?? "Quero este e-book"} <ExternalLink size={15} />
                 </a>
                 {selected.presentationUrl && (
-                  <a className="text-link" href={selected.presentationUrl} target="_blank" rel="noreferrer">
+                  <a className="text-link" href={selected.presentationUrl} target="_blank" rel="noopener noreferrer">
                     <BookOpen size={16} /> Ver página de apresentação
                   </a>
                 )}
-                <a className="text-link" href={whatsappFor(selected.title)} target="_blank" rel="noreferrer">
+                <a className="text-link" href={whatsappFor(selected.title)} target="_blank" rel="noopener noreferrer">
                   <MessageCircle size={16} /> Tirar uma dúvida
                 </a>
               </div>
@@ -691,6 +691,10 @@ export default function Home() {
           </div>
         </div>
       )}
+      <a className="floating-whatsapp" href={whatsappFor()} target="_blank" rel="noopener noreferrer" aria-label="Falar com a DigitalQuintino pelo WhatsApp" title="Falar pelo WhatsApp">
+        <MessageCircle size={21} aria-hidden="true" />
+        <span>Fale conosco</span>
+      </a>
     </div>
   );
 }
