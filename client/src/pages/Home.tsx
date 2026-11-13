@@ -649,9 +649,9 @@ export default function Home() {
                   <h3>{product.title}</h3>
                   <p>{product.description}</p>
                   <div className="product-footer">
-                    <a className="details-link" href={product.href} target="_blank" rel="noopener noreferrer" aria-label={`Conhecer o e-book ${product.title}`}>Conhecer o e-book <ArrowUpRight size={15} /></a>
-                    <a href={product.href} target="_blank" rel="noopener noreferrer" aria-label={product.actionLabel ? `${product.actionLabel}: ${product.title}` : `Comprar ${product.title}`}>
-                      <ArrowUpRight size={17} />
+                    <button className="details-link" type="button" onClick={() => setSelected(product)} aria-label={`Ver detalhes do e-book ${product.title}`}>Ver detalhes <ArrowUpRight size={14} /></button>
+                    <a className="buy-link" href={product.href} target="_blank" rel="noopener noreferrer" aria-label={product.actionLabel ? `${product.actionLabel}: ${product.title}` : `Acessar oferta de ${product.title}`}>
+                      Acessar oferta <ArrowUpRight size={14} />
                     </a>
                   </div>
                 </div>
