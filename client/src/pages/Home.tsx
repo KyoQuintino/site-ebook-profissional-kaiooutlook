@@ -225,7 +225,7 @@ const products: Product[] = [
     category: "PSICOLOGIA · APRENDIZADO · EVOLUÇÃO",
     description: "Comece pela lente. Deixe o crescimento fazer o resto.",
     image: "mindset-enviado_108263c6.webp",
-    href: "https://go.hotmart.com/G107687059T?dp=1",
+    href: "https://go.hotmart.com/G107687059T",
     tag: "MAIS POPULAR",
     bullets: ["Aprendizado e evolução", "Reflexões para mudar perspectivas", "Acesso digital imediato"],
   },
@@ -415,7 +415,7 @@ const products: Product[] = [
     description: "Compreenda o contexto, a mensagem central e as aplicações dos ensinamentos de Jesus em uma leitura clara e acolhedora.",
     image: "https://parabolas-bnki9eq8.manus.space/assets/parabolas-jesus-capa.png",
     imageFit: "contain",
-    href: "https://parabolas-bnki9eq8.manus.space/",
+    href: "https://go.hotmart.com/W107939681B",
     presentationUrl: "https://parabolas-bnki9eq8.manus.space/",
     actionLabel: "Conhecer o e-book",
     tag: "ESTUDO BÍBLICO",
@@ -441,7 +441,7 @@ const products: Product[] = [
     description: "Uma leitura sobre a linguagem não verbal e como gestos, posturas e atitudes também participam da comunicação humana.",
     image: "o-corpo-fala-capa.svg",
     imageFit: "contain",
-    href: "https://o-corpo-fala-gpt.vercel.app/",
+    href: "https://go.hotmart.com/F108422325X",
     presentationUrl: "https://o-corpo-fala-gpt.vercel.app/",
     actionLabel: "Conhecer o e-book",
     tag: "NOVA LEITURA",
@@ -479,7 +479,7 @@ const products: Product[] = [
     description: "Explore o clássico de Nicolau Maquiavel e suas reflexões sobre organização militar, disciplina, preparação, comando e estratégia.",
     image: "https://raw.githubusercontent.com/KyoQuintino/A-Arte-da-Guerra-Os-Princ-pios-da-Estrat-gia-e-da-Lideran-a-Nicolau-Maquiavel/main/assets/capa-principal.webp",
     imageFit: "contain",
-    href: "https://a-arte-da-guerra.vercel.app/",
+    href: "https://go.hotmart.com/L108440812A",
     presentationUrl: "https://a-arte-da-guerra.vercel.app/",
     actionLabel: "Conhecer o e-book",
     tag: "NOVA LEITURA",
@@ -650,8 +650,8 @@ export default function Home() {
                   <p>{product.description}</p>
                   <div className="product-footer">
                     <button className="details-link" type="button" onClick={() => setSelected(product)} aria-label={`Ver detalhes do e-book ${product.title}`}>Ver detalhes <ArrowUpRight size={14} /></button>
-                    <a className="buy-link" href={product.href} target="_blank" rel="noopener noreferrer" aria-label={product.actionLabel ? `${product.actionLabel}: ${product.title}` : `Acessar oferta de ${product.title}`}>
-                      Acessar oferta <ArrowUpRight size={14} />
+                    <a className="buy-link" href={product.href} target="_blank" rel="noopener noreferrer" aria-label={`Conhecer o e-book ${product.title}`}>
+                      Conhecer o e-book <ArrowUpRight size={14} />
                     </a>
                   </div>
                 </div>
