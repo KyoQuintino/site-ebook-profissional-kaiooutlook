@@ -530,12 +530,13 @@ function Cover({ product, variant = "card" }: { product: Product; variant?: "car
 function categoryFor(product: Product) {
   const text = `${product.title} ${product.category}`.toLowerCase();
   if (/bíblia|jesus|oração|orar|devocional|salmos|espiritual|fé|crist|parábol|diabo|armadura|provérbio|graça/.test(text)) return "Fé e Espiritualidade";
-  if (/detox|suco|saúde|bem-estar|hábitos naturais/.test(text)) return "Saúde e Bem-estar";
+  if (/detox|suco|saúde|bem-estar|hábitos naturais/.test(text)) return "Bem-estar";
   if (/criança|família|casamento|relacionamento|amigos|comunicação/.test(text)) return "Família e Relacionamentos";
+  if (/pré-socr|filosofia|história das ideias|maquiavel/.test(text)) return "Filosofia e Conhecimento";
   if (/liderança|negócio|guerra cultural|arte da guerra|estratégia|trabalho|gestão/.test(text)) return "Negócios e Liderança";
   return "Desenvolvimento Pessoal";
 }
-const categoryOptions = ["Todos", "Fé e Espiritualidade", "Desenvolvimento Pessoal", "Saúde e Bem-estar", "Família e Relacionamentos", "Negócios e Liderança"];
+const categoryOptions = ["Todos", "Fé e Espiritualidade", "Bem-estar", "Desenvolvimento Pessoal", "Família e Relacionamentos", "Filosofia e Conhecimento", "Negócios e Liderança"];
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
@@ -566,11 +567,18 @@ export default function Home() {
   const filtered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
     return products.filter((product) => {
-      const matchesQuery = !normalizedQuery || `${product.title} ${product.category}`.toLowerCase().includes(normalizedQuery);
+      const searchable = `${product.title} ${product.category} ${product.description} ${product.author ?? ""}`.toLowerCase();
+      const matchesQuery = !normalizedQuery || searchable.includes(normalizedQuery);
       const matchesCategory = selectedCategory === "Todos" || categoryFor(product) === selectedCategory;
       return matchesQuery && matchesCategory;
     }).sort((a, b) => a.title.localeCompare(b.title, "pt-BR", { sensitivity: "base", numeric: true }));
   }, [query, selectedCategory]);
+
+  const suggestions = useMemo(() => {
+    const term = query.trim().toLowerCase();
+    if (term.length < 2) return [];
+    return products.filter((product) => `${product.title} ${product.category} ${product.description} ${product.author ?? ""}`.toLowerCase().includes(term)).slice(0, 5);
+  }, [query]);
 
   const scrollToCatalog = () => {
     document.querySelector("#colecao")?.scrollIntoView({ behavior: "smooth" });
@@ -617,6 +625,7 @@ export default function Home() {
               <a className="text-link" href={whatsappFor()} target="_blank" rel="noopener noreferrer">Tirar uma dúvida <ArrowUpRight size={16} /></a>
             </div>
             <div className="hero-proof"><span>E-books digitais para diferentes momentos da vida</span></div>
+            <p className="hero-microcopy"><Check size={14} /> Leitura imediata no celular ou tablet <span>•</span> Acesso conforme as condições da oferta</p>
           </div>
           <div className="hero-art" aria-label="Capas selecionadas da coleção">
             <div className="hero-caption caption-left">feito<br />para você</div>
@@ -644,13 +653,23 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="decision-proof section-wrap" aria-label="Experiência de leitores">
+          <div className="decision-proof-stars" aria-hidden="true">★★★★★</div>
+          <p>“As atividades são incríveis! Meu filho de 7 anos adora a ‘hora da oração’ que criamos juntos.”</p>
+          <span>Fernanda R. · Mãe e professora</span>
+          <a href="#depoimentos">Leia os depoimentos <ArrowUpRight size={13} /></a>
+        </section>
+
         <section className="catalog section-wrap" id="colecao">
           <div className="catalog-intro">
             <div><div className="eyebrow">A COLEÇÃO DIGITALQUINTINO</div><h2>Escolha a próxima <i>virada.</i></h2></div>
             <p>Uma coleção de leituras para alinhar o que você sente com o que quer construir. Explore por tema, encontre a que conversa com seu momento e leia no seu ritmo.</p>
           </div>
           <div className="catalog-tools">
-            <label className="search-wrap"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar uma leitura" aria-label="Buscar uma leitura" /></label>
+            <div className="search-suggest-wrap">
+              <label className="search-wrap"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar e-book por título, tema ou autor" aria-label="Buscar e-book por título, tema ou autor" aria-expanded={suggestions.length > 0} aria-controls="search-suggestions" /></label>
+              {suggestions.length > 0 && <div className="search-suggestions" id="search-suggestions" role="listbox" aria-label="Sugestões de e-books">{suggestions.map((product) => <button type="button" role="option" key={product.id} onClick={() => { setSelected(product); setQuery(product.title); }}><span>{product.title}</span><small>{categoryFor(product)}</small></button>)}</div>}
+            </div>
             <div className="result-count"><strong>{filtered.length}</strong> leituras para explorar</div>
           </div>
           <div className="category-filters" role="group" aria-label="Filtrar catálogo por categoria">
@@ -670,9 +689,9 @@ export default function Home() {
                   <p>{product.description}</p>
                   <div className="product-footer">
                     <button className="details-link" type="button" onClick={() => setSelected(product)} aria-label={`Ver detalhes do e-book ${product.title}`}>Ver detalhes <ArrowUpRight size={14} /></button>
-                    <a className="buy-link" href={product.href} target="_blank" rel="noopener noreferrer" aria-label={`Conhecer o e-book ${product.title}`}>
-                      Conhecer o e-book <ArrowUpRight size={14} />
-                    </a>
+                    <button className="buy-link" type="button" onClick={() => setSelected(product)} aria-label={`Ver detalhes e opções de compra de ${product.title}`}>
+                      Quero este e-book <ArrowUpRight size={14} />
+                    </button>
                   </div>
                 </div>
               </article>
@@ -748,9 +767,10 @@ export default function Home() {
               <ul className="benefit-list">
                 {selected.bullets.map((bullet) => <li key={bullet}><Check size={15} />{bullet}</li>)}
               </ul>
+              <div className="modal-trust"><span><Check size={14} /> Checkout em plataforma de pagamento</span><span><BookOpen size={14} /> Leitura digital</span></div>
               <div className="modal-actions">
                 <a className="button button-accent" href={selected.href} target="_blank" rel="noopener noreferrer">
-                  {selected.actionLabel ?? "Acessar oferta"} <ExternalLink size={15} />
+                  {selected.actionLabel ?? "Continuar para a oferta"} <ExternalLink size={15} />
                 </a>
                 {selected.presentationUrl && (
                   <a className="text-link" href={selected.presentationUrl} target="_blank" rel="noopener noreferrer">
