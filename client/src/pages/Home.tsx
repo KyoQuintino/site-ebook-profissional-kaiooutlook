@@ -226,7 +226,7 @@ const products: Product[] = [
     description: "Comece pela lente. Deixe o crescimento fazer o resto.",
     image: "mindset-enviado_108263c6.webp",
     href: "https://go.hotmart.com/G107687059T",
-    tag: "MAIS POPULAR",
+    tag: "LEITURA EM DESTAQUE",
     bullets: ["Aprendizado e evolução", "Reflexões para mudar perspectivas", "Acesso digital imediato"],
   },
   {
@@ -471,7 +471,7 @@ const products: Product[] = [
     image: "armadura-de-deus-8k-3x4(1).jpg",
     href: "https://go.hotmart.com/H107959010L",
     actionLabel: "Conhecer o e-book",
-    tag: "NOVA LEITURA",
+    tag: "EM DESTAQUE",
     bullets: ["Reflexões sobre a armadura espiritual", "Princípios bíblicos para fortalecer a fé", "Acesso ao conteúdo pela página de compra"],
   },
   {
@@ -544,6 +544,12 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [selected, setSelected] = useState<Product | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const readerQuotes = [
+    { quote: "Minha filha de 5 anos agora pede para orar antes de dormir todos os dias. Esse guia mudou nossa rotina de uma forma linda e inesperada.", name: "Ana Paula S.", role: "Mãe de 2 filhos" },
+    { quote: "Eu não sabia como falar sobre Deus com meu filho pequeno. O guia me deu as palavras certas e a confiança que eu precisava.", name: "Carlos M.", role: "Pai de primeira viagem" },
+    { quote: "As atividades são incríveis! Meu filho de 7 anos adora a hora da oração que criamos juntos. O vínculo ficou muito mais forte.", name: "Fernanda R.", role: "Mãe e professora" },
+  ];
 
   useEffect(() => {
     document.title = "DigitalQuintino — E-books para viver melhor";
@@ -653,11 +659,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="decision-proof section-wrap" aria-label="Experiência de leitores">
+        <section className="decision-proof section-wrap" aria-label="Depoimentos de leitores">
           <div className="decision-proof-stars" aria-hidden="true">★★★★★</div>
-          <p>“As atividades são incríveis! Meu filho de 7 anos adora a ‘hora da oração’ que criamos juntos.”</p>
-          <span>Fernanda R. · Mãe e professora</span>
-          <a href="#depoimentos">Leia os depoimentos <ArrowUpRight size={13} /></a>
+          <p>“{readerQuotes[testimonialIndex].quote}”</p>
+          <span>{readerQuotes[testimonialIndex].name} · {readerQuotes[testimonialIndex].role}</span>
+          <div className="decision-proof-controls">
+            <button type="button" onClick={() => setTestimonialIndex((index) => (index + readerQuotes.length - 1) % readerQuotes.length)} aria-label="Depoimento anterior">‹</button>
+            <span>{testimonialIndex + 1} / {readerQuotes.length}</span>
+            <button type="button" onClick={() => setTestimonialIndex((index) => (index + 1) % readerQuotes.length)} aria-label="Próximo depoimento">›</button>
+          </div>
+          <a href="#depoimentos">Ver todos os depoimentos <ArrowUpRight size={13} /></a>
         </section>
 
         <section className="catalog section-wrap" id="colecao">
@@ -672,7 +683,7 @@ export default function Home() {
             </div>
             <div className="result-count"><strong>{filtered.length}</strong> leituras para explorar</div>
           </div>
-          <div className="category-filters" role="group" aria-label="Filtrar catálogo por categoria">
+          <div className="category-filters" role="group" aria-label="Filtros de categoria — acompanham a rolagem">
             {categoryOptions.map((category) => (
               <button key={category} type="button" className={`category-filter ${selectedCategory === category ? "is-active" : ""}`} aria-pressed={selectedCategory === category} onClick={() => setSelectedCategory(category)}>{category}</button>
             ))}
@@ -690,7 +701,7 @@ export default function Home() {
                   <div className="product-footer">
                     <button className="details-link" type="button" onClick={() => setSelected(product)} aria-label={`Ver detalhes do e-book ${product.title}`}>Ver detalhes <ArrowUpRight size={14} /></button>
                     <button className="buy-link" type="button" onClick={() => setSelected(product)} aria-label={`Ver detalhes e opções de compra de ${product.title}`}>
-                      Quero este e-book <ArrowUpRight size={14} />
+                      Quero ler agora <ArrowUpRight size={14} />
                     </button>
                   </div>
                 </div>
@@ -708,6 +719,10 @@ export default function Home() {
 
 
         <style>{`
+          #colecao .category-filters { position: sticky; top: 10px; z-index: 30; padding: 12px; margin: 0 -12px 10px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface, var(--white)); box-shadow: 0 8px 24px rgba(30,35,28,.08); }
+          .decision-proof-controls { display:flex; align-items:center; gap:8px; }
+          .decision-proof-controls button { width:30px; height:30px; border:1px solid var(--line); border-radius:50%; background:var(--surface, var(--white)); color:var(--ink); font-size:20px; cursor:pointer; }
+          .checkout-note { margin: -8px 0 18px; color: var(--ink-soft); font-size: 12px; line-height: 1.5; }
           .testimonials-section { padding: 84px 0 96px; scroll-margin-top: 28px; }
           .testimonials-heading { max-width: 720px; margin: 0 auto 38px; text-align: center; }
           .testimonials-heading .eyebrow { justify-content: center; }
@@ -767,10 +782,10 @@ export default function Home() {
               <ul className="benefit-list">
                 {selected.bullets.map((bullet) => <li key={bullet}><Check size={15} />{bullet}</li>)}
               </ul>
-              <div className="modal-trust"><span><Check size={14} /> Checkout em plataforma de pagamento</span><span><BookOpen size={14} /> Leitura digital</span></div>
+              <div className="modal-trust"><span><Check size={14} /> Pagamento processado pela plataforma indicada no checkout</span><span><BookOpen size={14} /> Leitura digital</span></div><p className="checkout-note">Confira no checkout as condições de pagamento, prazo de acesso e eventual garantia de reembolso desta oferta.</p>
               <div className="modal-actions">
                 <a className="button button-accent" href={selected.href} target="_blank" rel="noopener noreferrer">
-                  {selected.actionLabel ?? "Continuar para a oferta"} <ExternalLink size={15} />
+                  {selected.actionLabel ?? "Garantir meu acesso imediato"} <ExternalLink size={15} />
                 </a>
                 {selected.presentationUrl && (
                   <a className="text-link" href={selected.presentationUrl} target="_blank" rel="noopener noreferrer">
