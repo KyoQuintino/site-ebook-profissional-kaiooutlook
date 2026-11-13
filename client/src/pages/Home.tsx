@@ -589,6 +589,7 @@ export default function Home() {
           <a href="#colecao" onClick={() => setMobileOpen(false)}>Coleção</a>
           <a href="#curadoria" onClick={() => setMobileOpen(false)}>Curadoria</a>
           <a href="#sobre" onClick={() => setMobileOpen(false)}>Sobre</a>
+          <a href="#depoimentos" onClick={() => setMobileOpen(false)}>Depoimentos</a>
           <a className="nav-cta" href={whatsappFor()} target="_blank" rel="noopener noreferrer">Falar com a gente <ArrowUpRight size={15} /></a>
         </nav>
         <button
@@ -687,10 +688,53 @@ export default function Home() {
 
 
 
+        <style>{`
+          .testimonials-section { padding: 84px 0 96px; scroll-margin-top: 28px; }
+          .testimonials-heading { max-width: 720px; margin: 0 auto 38px; text-align: center; }
+          .testimonials-heading .eyebrow { justify-content: center; }
+          .testimonials-heading h2 { margin: 12px 0; font: 500 clamp(34px, 5vw, 58px)/1.05 Georgia, serif; color: var(--ink); }
+          .testimonials-heading h2 i { color: var(--terracotta); font-weight: 400; }
+          .testimonials-heading p { max-width: 560px; margin: 0 auto; color: var(--muted); line-height: 1.7; }
+          .testimonials-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+          .testimonial-card { display: flex; flex-direction: column; min-height: 260px; padding: 28px 25px 24px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface, var(--white)); box-shadow: 0 14px 34px rgba(40, 34, 24, .06); }
+          .testimonial-stars { color: var(--terracotta); font-size: 15px; letter-spacing: .18em; margin-bottom: 18px; }
+          .testimonial-quote { flex: 1; margin: 0 0 24px; color: var(--ink); font: 400 17px/1.65 Georgia, serif; }
+          .testimonial-author { margin: 0; color: var(--ink); font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+          .testimonial-role { display: block; margin-top: 5px; color: var(--muted); font-size: 11px; }
+          @media (max-width: 760px) { .testimonials-section { padding: 64px 0 72px; } .testimonials-grid { grid-template-columns: 1fr; gap: 14px; } .testimonial-card { min-height: 0; padding: 24px 22px; } }
+        `}</style>
+        <section className="testimonials-section section-wrap" id="depoimentos" aria-labelledby="testimonials-title">
+          <div className="testimonials-heading">
+            <div className="eyebrow">HISTÓRIAS DE FAMÍLIA</div>
+            <h2 id="testimonials-title">Palavras que vêm do <i>coração.</i></h2>
+            <p>Experiências compartilhadas por famílias que encontraram novas maneiras de cultivar a fé e a oração no dia a dia.</p>
+          </div>
+          <div className="testimonials-grid">
+            <article className="testimonial-card">
+              <div className="testimonial-stars" aria-label="5 estrelas">★★★★★</div>
+              <blockquote className="testimonial-quote">“Minha filha de 5 anos agora pede para orar antes de dormir todos os dias. Esse guia mudou nossa rotina de uma forma linda e inesperada.”</blockquote>
+              <p className="testimonial-author">Ana Paula S.</p>
+              <span className="testimonial-role">Mãe de 2 filhos</span>
+            </article>
+            <article className="testimonial-card">
+              <div className="testimonial-stars" aria-label="5 estrelas">★★★★★</div>
+              <blockquote className="testimonial-quote">“Eu não sabia como falar sobre Deus com meu filho pequeno. O guia me deu as palavras certas e a confiança que eu precisava.”</blockquote>
+              <p className="testimonial-author">Carlos M.</p>
+              <span className="testimonial-role">Pai de primeira viagem</span>
+            </article>
+            <article className="testimonial-card">
+              <div className="testimonial-stars" aria-label="5 estrelas">★★★★★</div>
+              <blockquote className="testimonial-quote">“As atividades são incríveis! Meu filho de 7 anos adora a ‘hora da oração’ que criamos juntos. O vínculo ficou muito mais forte.”</blockquote>
+              <p className="testimonial-author">Fernanda R.</p>
+              <span className="testimonial-role">Mãe e professora</span>
+            </article>
+          </div>
+        </section>
+
         <section className="closing-cta section-wrap"><div className="closing-mark">D</div><div><div className="eyebrow">LEITURA COM PROPÓSITO</div><h2>Tem uma pergunta?<br /><i>Fale com a gente.</i></h2></div><a className="button button-light" href={whatsappFor()} target="_blank" rel="noopener noreferrer">Chamar no WhatsApp <MessageCircle size={16} /></a></section>
       </main>
 
-      <footer className="site-footer section-wrap"><div className="footer-brand"><span className="brand-mark">D</span><div><strong>Digital <em>Quintino</em></strong><span>Leituras para viver melhor.</span></div></div><div className="footer-links"><a href="#colecao">Coleção</a><a href="#curadoria">Curadoria</a><a href={whatsappFor()} target="_blank" rel="noopener noreferrer">WhatsApp</a></div><span className="footer-note">© 2026 DigitalQuintino</span></footer>
+      <footer className="site-footer section-wrap"><div className="footer-brand"><span className="brand-mark">D</span><div><strong>Digital <em>Quintino</em></strong><span>Leituras para viver melhor.</span></div></div><div className="footer-links"><a href="#colecao">Coleção</a><a href="#curadoria">Curadoria</a><a href="#depoimentos">Depoimentos</a><a href={whatsappFor()} target="_blank" rel="noopener noreferrer">WhatsApp</a></div><span className="footer-note">© 2026 DigitalQuintino</span></footer>
 
       {selected && (
         <div className="modal-backdrop" role="presentation" onClick={() => setSelected(null)}>
