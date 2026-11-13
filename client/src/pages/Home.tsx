@@ -687,7 +687,7 @@ export default function Home() {
               </ul>
               <div className="modal-actions">
                 <a className="button button-accent" href={selected.href} target="_blank" rel="noopener noreferrer">
-                  {selected.actionLabel ?? "Quero este e-book"} <ExternalLink size={15} />
+                  {selected.actionLabel ?? "Acessar oferta"} <ExternalLink size={15} />
                 </a>
                 {selected.presentationUrl && (
                   <a className="text-link" href={selected.presentationUrl} target="_blank" rel="noopener noreferrer">
