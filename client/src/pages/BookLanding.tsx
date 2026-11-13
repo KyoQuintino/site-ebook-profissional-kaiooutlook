@@ -139,6 +139,15 @@ export default function BookLanding() {
     if (ogTitle) ogTitle.content = pageTitle;
     const ogDescription = document.querySelector<HTMLMetaElement>('meta[property="og:description"]');
     if (ogDescription) ogDescription.content = data.description;
+    const shareImage = new URL(data.image, window.location.origin).href;
+    const ogImage = document.querySelector<HTMLMetaElement>('meta[property="og:image"]');
+    if (ogImage) ogImage.content = shareImage;
+    const ogImageAlt = document.querySelector<HTMLMetaElement>('meta[property="og:image:alt"]');
+    if (ogImageAlt) ogImageAlt.content = `Capa do e-book ${data.title}`;
+    const twitterTitle = document.querySelector<HTMLMetaElement>('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.content = pageTitle;
+    const twitterImage = document.querySelector<HTMLMetaElement>('meta[name="twitter:image"]');
+    if (twitterImage) twitterImage.content = shareImage;
   }, [data]);
 
   const whatsappUrl = `https://wa.me/5527995126041?text=${encodeURIComponent(`Olá! Vim pela DigitalQuintino e gostaria de tirar uma dúvida sobre o e-book ${data.title}.`)}`;
